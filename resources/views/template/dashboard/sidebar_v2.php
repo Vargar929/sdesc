@@ -94,7 +94,7 @@
         <div class="sidebar-footer">
             <a href="/tickets">
                 <span class="badge badge-light  text-warning"><i class="fa fa-bell"></i>
-                <span class="badge badge-pill badge-warning notification">3</span></span>
+                <span class="badge badge-pill badge-warning notification"  id="notify">3</span></span>
             </a>
             <a href="/messages">
                 <span class="badge badge-light text-success"><i class="fa fa-envelope"></i>
@@ -113,6 +113,6 @@
     <main class="page-content">
         <div class="container-fluid">
 
-
-
-
+            <script type="text/javascript">
+                setInterval(ticket_count, 1000);
+            </script>

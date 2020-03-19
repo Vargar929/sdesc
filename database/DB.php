@@ -142,6 +142,12 @@ class DB
 
         return $data;
     }
+    public static function rowCount(){
+        return self::instance()->rowCount();
+    }
+    public static function lastInsertId() {
+        return self::instance()->lastInsertId();
+    }
 
     protected static function init()
     {
