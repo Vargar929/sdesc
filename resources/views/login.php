@@ -30,7 +30,7 @@
     }
     #icon{
         width:328px ;
-        height:100px ;
+        height:60px ;
     }
     .password {
         margin: 15px auto;

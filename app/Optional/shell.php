@@ -207,4 +207,5 @@ function current_season() {
     echo $image_path;
 }
 
+
 ?>
