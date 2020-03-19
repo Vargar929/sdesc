@@ -166,3 +166,45 @@ function switcher($text,$arrow=0){
     $str[1] = array (  'q' => 'й', 'w' => 'ц', 'e' => 'у', 'r' => 'к', 't' => 'е', 'y' => 'н', 'u' => 'г', 'i' => 'ш', 'o' => 'щ', 'p' => 'з', '[' => 'х', ']' => 'ъ', 'a' => 'ф', 's' => 'ы', 'd' => 'в', 'f' => 'а', 'g' => 'п', 'h' => 'р', 'j' => 'о', 'k' => 'л', 'l' => 'д', ';' => 'ж', '\'' => 'э', 'z' => 'я', 'x' => 'ч', 'c' => 'с', 'v' => 'м', 'b' => 'и', 'n' => 'т', 'm' => 'ь', ',' => 'б', '.' => 'ю','Q' => 'Й', 'W' => 'Ц', 'E' => 'У', 'R' => 'К', 'T' => 'Е', 'Y' => 'Н', 'U' => 'Г', 'I' => 'Ш', 'O' => 'Щ', 'P' => 'З', '[' => 'Х', ']' => 'Ъ', 'A' => 'Ф', 'S' => 'Ы', 'D' => 'В', 'F' => 'А', 'G' => 'П', 'H' => 'Р', 'J' => 'О', 'K' => 'Л', 'L' => 'Д', ';' => 'Ж', '\'' => 'Э', 'Z' => '?', 'X' => 'ч', 'C' => 'С', 'V' => 'М', 'B' => 'И', 'N' => 'Т', 'M' => 'Ь', ',' => 'Б', '.' => 'Ю', );
     return strtr($text,isset( $str[$arrow] )? $str[$arrow] :array_merge($str[0],$str[1]));
 }
+
+function current_season() {
+    // Locate the icons
+    $icons = array(
+        "spring" => HLEB_MAIN_DOMAIN."/images/spring.png",
+        "summer" => HLEB_MAIN_DOMAIN."/images/summer.png",
+        "autumn" => HLEB_MAIN_DOMAIN."/images/autumn.png",
+        "winter" => "../images/winter.png"
+    );
+
+    // What is today's date - number
+    $day = date("z");
+
+    //  Days of spring
+    $spring_starts = date("z", strtotime("March 21"));
+    $spring_ends   = date("z", strtotime("June 20"));
+
+    //  Days of summer
+    $summer_starts = date("z", strtotime("June 21"));
+    $summer_ends   = date("z", strtotime("September 22"));
+
+    //  Days of autumn
+    $autumn_starts = date("z", strtotime("September 23"));
+    $autumn_ends   = date("z", strtotime("December 20"));
+
+    //  If $day is between the days of spring, summer, autumn, and winter
+    if( $day >= $spring_starts && $day <= $spring_ends ) :
+        $season = "spring";
+    elseif( $day >= $summer_starts && $day <= $summer_ends ) :
+        $season = "summer";
+    elseif( $day >= $autumn_starts && $day <= $autumn_ends ) :
+        $season = "autumn";
+    else :
+        $season = "winter";
+    endif;
+
+    $image_path = $icons[$season];
+
+    echo $image_path;
+}
+
+?>

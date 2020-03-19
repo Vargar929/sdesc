@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href= "//<?= HLEB_MAIN_DOMAIN;?>/favicon.ico" type="image/x-icon">
-    <title><?=SYSTEM_NAME .'=>'. $title;?></title>
+    <title><?=SYSTEM_NAME .'  '. $title;?></title>
     <!-- Custom fonts for this template-->
     <link href= "//<?= HLEB_MAIN_DOMAIN;?>/vendor/chart.js/Chart.css" rel="stylesheet" type="text/css">
     <link href= "//<?= HLEB_MAIN_DOMAIN;?>/vendor/fortawesome/font-awesome/css/all.min.css" rel="stylesheet" type="text/css">
@@ -43,5 +43,18 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<style type="text/css">
+    body{
+        background-image: url( <?php current_season();?>);
+        background-attachment: fixed;
+        -moz-background-size: contain; /* Firefox 3.6+ */
+        -webkit-background-size: contain; /* Safari 3.1+ и Chrome 4.0+ */
+        -o-background-size: contain; /* Opera 9.6+ */
+        background-size: contain; /* Современные браузеры */
+        background-position:center;
+        /*background-size: 100%;*/
+    }
+</style>
+
 </head>
 <!--https://select2.org/getting-started/builds-and-modules-->
