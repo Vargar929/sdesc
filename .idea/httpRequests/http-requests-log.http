@@ -1,0 +1,190 @@
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T063348.200.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T062546.200.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T062519.200.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T062020.200.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T061939.200.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T061904.200.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T061742.200.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T061548.200.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T061336.200.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T061210.200.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20!
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T061030.401.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T060921.200.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T060436.200.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T060024.200.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T055858.401.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T055802.200.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T055723.401.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T055547.401.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T055401.401.json
+
+###
+
+GET http://sdesc.test/api/v1/login?email=Rykov_D@zashita.railways.kz&password=v0Vqla20
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T055333.200.json
+
+###
+
+GET http://sdesc.test/api/v1/login?id=1
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://sdesc.test/api/v1/get_all_ticket?id=1
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T050637.200.html
+
+###
+
+GET http://sdesc.test/api/v1/get_all_ticket?id=1
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T045751.200.html
+
+###
+
+GET http://sdesc.test/api/v1/get_all_ticket_data?id=1
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-20T045728.200.html
+
+###
+

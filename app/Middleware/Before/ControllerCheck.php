@@ -9,7 +9,14 @@ namespace App\Middleware\Before;
 
 class ControllerCheck extends \MainMiddleware
 {
+    function REST_redirect(string $url, int $code = 302)
+    {
+        if (!headers_sent()) {
 
+            header('Location: ' . HLEB_MAIN_DOMAIN.$url, true, $code);
+        }
+        exit();
+    }
     function checkAdmin()
     {
 
@@ -19,6 +26,12 @@ class ControllerCheck extends \MainMiddleware
     {
         if ( !(isset($_SESSION['account']['id'])) ){
             redirect('/login');
+        }
+    }
+    function checkRESTAuth()
+    {
+        if ( !(isset($_SESSION['account']['id'])) ){
+            self::REST_redirect('/login');
         }
     }
 

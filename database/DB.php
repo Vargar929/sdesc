@@ -148,6 +148,9 @@ class DB
     public static function lastInsertId() {
         return self::instance()->lastInsertId();
     }
+    public static function bindParam() {
+        return self::instance()->bindParam();
+    }
 
     protected static function init()
     {

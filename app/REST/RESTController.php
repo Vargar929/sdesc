@@ -9,11 +9,23 @@
 namespace App\REST;
 
 
+use App\Models\REST\RESTModel;
 use App\Models\TestModel;
 use App\Models\TicketModel;
+use App\Models\UserModel;
+use Firebase\JWT\JWT;
+
 
 class RESTController extends \MainController
 {
+    public static function http_host_uri(){
+        $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
+        $url = explode('?', $url);
+        $url = $url[0];
+        return $url;
+    }
+
+
 
 function getAllTickets(){
     $arr = TicketModel::getCountFromAllTicketByUerID($_GET);
@@ -32,5 +44,19 @@ function getAllData()
         echo json_encode($p_arr, JSON_FORCE_OBJECT | JSON_UNESCAPED_UNICODE);
     }
 //    header('Content-Type: application/json');
+}
+
+/**
+ *
+ */
+
+function login_API()
+{
+    header("Access-Control-Allow-Origin: " . self::http_host_uri());
+    header("Content-Type: application/json; charset=UTF-8");
+    header("Access-Control-Allow-Methods: POST");
+    header("Access-Control-Max-Age: 3600");
+    header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+    RESTModel::auth_User($_GET);
 }
 }

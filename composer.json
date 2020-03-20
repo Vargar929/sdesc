@@ -34,7 +34,8 @@
     "yohang88/letter-avatar": "2.2.*",
     "eternicode/bootstrap-datepicker": "1.9.*",
     "ext-pdo": "*",
-    "nnnick/chartjs":"v3.0.0-alpha"
+    "nnnick/chartjs":"v3.0.0-alpha",
+    "firebase/php-jwt": "5.1.0"
   },
   "autoload": {
     "psr-4": {

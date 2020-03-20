@@ -64,5 +64,20 @@ WHERE
         return DB::run($sql,$params)->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    static function getUserData($data){
+        $email = htmlspecialchars(strip_tags($data['email']));
+        $sql = "SELECT
+       u.id, u.email,
+       ui.f_name, ui.l_name, ui.m_name, ui.phone
+FROM
+     user_info ui, users u
+WHERE
+      ui.user_id = u.id and u.email = ?";
+        $arr = DB::run($sql,[$email])->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($arr as $arr) {
+            return $arr;
+        }
+    }
+
 
 }
