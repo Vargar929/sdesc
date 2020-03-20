@@ -1,4 +1,3 @@
-
 <?php $avtar_img = RenderUserAvatar($_SESSION['account']['f_name'],$_SESSION['account']['l_name']);?>
 <body>
 <div class="page-wrapper chiller-theme toggled">
@@ -60,7 +59,7 @@
                         <span>Extra</span>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="disabled">
                             <i class="fa fa-book"></i>
                             <span>Documentation</span>
                             <span class="badge badge-pill badge-primary">&#946eta</span>
@@ -84,7 +83,7 @@
                                     ?>
                                      <a href="https://github.com/RycovDenis" class="badge badge-light badge-pill"> <i class="fab fa-github"></i> Denis Rykov</a>
                                   <br>Все права защищены.
-                                     <br>Лицензировано <a href="/lic" class="badge badge-light badge-pill">  <i class="fas fa-balance-scale"></i>MIT</a>
+                                     <br>Лицензировано <a href="/license" class="badge badge-light badge-pill">  <i class="fas fa-balance-scale"></i>MIT</a>
                         </span>
                     </div>
                 </div>
@@ -112,7 +111,21 @@
     <!-- sidebar-wrapper  -->
     <main class="page-content">
         <div class="container-fluid">
-
             <script type="text/javascript">
-                setInterval(ticket_count, 1000);
+                function notify() {
+                    let ticket_data = '/api/v1/get_all_ticket';
+                    $.ajax({
+                        type: "GET",
+                        url: ticket_data,
+                        data: "id=1&status=1",
+                        success: function(msg){
+                            if (msg === 0) {
+                                document.getElementById('notify').setAttribute("hidden","hidden");
+                            }else {
+                                document.getElementById('notify').innerText = msg;
+                            }
+                        }
+                    });
+                }
+                setInterval(notify, 10000);
             </script>

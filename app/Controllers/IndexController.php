@@ -9,6 +9,10 @@ class IndexController extends \MainController
     function index(){
         return render('index page',[ 'title'=>'Главная']);
     }
+
+    function license(){
+        return render('license page',[ 'title'=>'Лицензия']);
+    }
     function login(){
         if (!empty($_GET)) {
             if (!UserModel::checkData($_GET['login'], $_GET['password'])) {

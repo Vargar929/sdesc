@@ -10,12 +10,27 @@ namespace App\REST;
 
 
 use App\Models\TestModel;
+use App\Models\TicketModel;
 
 class RESTController extends \MainController
 {
+
 function getAllTickets(){
-    $arr = TestModel::getAllTicketByUerID($_GET);
+    $arr = TicketModel::getCountFromAllTicketByUerID($_GET);
     header('Content-Type: application/json');
-    echo json_encode($arr,JSON_UNESCAPED_UNICODE);
+    echo json_encode($arr,JSON_FORCE_OBJECT);
+}
+
+function putNewTickets(){
+   echo TicketModel::WriteNewTickets(json_decode($_POST['jsonData'],JSON_FORCE_OBJECT));
+}
+
+function getAllData()
+{
+    $arr = TicketModel::getAllDataFrmTicketWhereByUserID($_GET);
+    foreach ($arr as $p_arr ){
+        echo json_encode($p_arr, JSON_FORCE_OBJECT | JSON_UNESCAPED_UNICODE);
+    }
+//    header('Content-Type: application/json');
 }
 }

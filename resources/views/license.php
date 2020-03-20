@@ -1,5 +1,5 @@
 <div class="row" >
-    <div class="col-sm-12">
+    <div class="col-sm-6">
         <div class="card">
             <div class="card-header text-center">
                 <h5><strong>MIT License</strong></h5>
@@ -11,7 +11,6 @@
                     echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');
                     ?>
                     <strong> <a href="https://github.com/RycovDenis"> <i class="fab fa-github"></i> Denis Rykov</a></strong></p>
-
                 <p>Permission is hereby granted, free of charge, to any person obtaining a copy
                     of this software and associated documentation files (the "Software"), to deal
                     in the Software without restriction, including without limitation the rights
@@ -31,14 +30,22 @@
             </div>
         </div>
     </div>
-</div>
-<div class="row" >
-    <div class="col-sm-12">
-        <div class="card-header text-center">
-            <h5><strong>MIT License</strong></h5>
-        </div>
-        <div class="card-body">
-            <p>  Настоящим предоставляется бесплатное разрешение любому лицу,
+<!--</div>-->
+<!--<div class="row" >-->
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header text-center">
+                <h5><strong>Лицензировано MIT</strong></h5>
+            </div>
+            <div class="card-body">
+                <p>Copyright &copy  <?php
+                    $fromYear = 2019;
+                    $thisYear = (int)date('Y');
+                    echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');
+                    ?>
+                    <strong> <a href="https://github.com/RycovDenis"> <i class="fab fa-github"></i> Denis Rykov</a></strong></p>
+
+            <p> Настоящим предоставляется бесплатное разрешение любому лицу,
                 получающему копию этого программного обеспечения и связанных с ним файлов документации
                 (далее - «Программное обеспечение» и, или ПО), осуществлять операции с ПО без ограничений,
                 включая, помимо прочего: права на использование, копирование, изменение, слияние, публикацию,
@@ -48,7 +55,7 @@
                 о разрешении должны быть включены во все копии или существенные части Программного обеспечения.
             </p>
             <hr>
-            <p>  ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ «КАК ЕСТЬ»,
+            <p> ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ «КАК ЕСТЬ»,
                 БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ, ЯВНЫХ ИЛИ ПОДРАЗУМЕВАЕМЫХ, ВКЛЮЧАЯ,
                 НО НЕ ОГРАНИЧИВАЯСЯ ГАРАНТИИ ТОВАРНОГО ОБЕСПЕЧЕНИЯ,
                 ПРИГОДНОСТИ ДЛЯ ОСОБЫХ ЦЕЛЕЙ И НЕЗАКРЕПЛЕНИЙ.

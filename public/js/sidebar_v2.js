@@ -1,5 +1,4 @@
 jQuery(function ($) {
-
         $(".sidebar-dropdown > a").click(function() {
             $(".sidebar-submenu").slideUp(200);
             if (
@@ -28,8 +27,5 @@ jQuery(function ($) {
         $("#show-sidebar").click(function() {
             $(".page-wrapper").addClass("toggled");
         });
-
-
-
-
     });
+

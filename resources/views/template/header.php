@@ -35,7 +35,7 @@
     <!--begin select2-->
     <script src= "//<?= HLEB_MAIN_DOMAIN;?>/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src= "//<?= HLEB_MAIN_DOMAIN;?>/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src= "//<?= HLEB_MAIN_DOMAIN;?>/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src= "//<?= HLEB_MAIN_DOMAIN;?>/vendor/mouse0270/bootstrap-growl/bootstrap-notify.min.js"></script>
     <!-- end select2   -->
     <!--begin Sidebar_v2-->
     <link href= "//<?= HLEB_MAIN_DOMAIN;?>/css/sidebar_v2.css" rel="stylesheet">

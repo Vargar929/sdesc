@@ -1,4 +1,5 @@
-function ticket_count(){ let host = window.location.hostname;
+function ticket_count(){
+    let host = window.location.hostname;
     let ticket_data = '/api/v1/get_all_ticket';
     $.ajax({
         type: "GET",
@@ -41,16 +42,5 @@ function ticket_count(){ let host = window.location.hostname;
             document.getElementById('all').innerText= msg ;
         }
     });
-    $.ajax({
-        type: "GET",
-        url: ticket_data,
-        data: "id=1&status=1",
-        success: function(msg){
-            if (msg === 0) {
-                document.getElementById('notify').setAttribute("hidden","hidden");
-            }else {
-                document.getElementById('notify').innerText = msg;
-            }
-        }
-    });
+
 }
