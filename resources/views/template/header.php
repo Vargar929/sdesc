@@ -12,7 +12,7 @@
     <!-- Custom fonts for this template-->
     <link href= "//<?= HLEB_MAIN_DOMAIN;?>/vendor/chart.js/Chart.css" rel="stylesheet" type="text/css">
     <link href= "//<?= HLEB_MAIN_DOMAIN;?>/vendor/fortawesome/font-awesome/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href= "//<?= HLEB_MAIN_DOMAIN;?>/vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href= "//<?= HLEB_MAIN_DOMAIN;?>/vendor/twbs/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href= "//<?= HLEB_MAIN_DOMAIN;?>/css/tootik.min.css" rel="stylesheet">
     <link href= "//<?= HLEB_MAIN_DOMAIN;?>/vendor/nnnick/chartjs/css/Chart.min.css" rel="stylesheet">
     <!-- Custom styles for this template-->
@@ -21,8 +21,8 @@
     <script src= "//<?= HLEB_MAIN_DOMAIN;  ?>/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Bootstrap core JavaScript-->
-    <script src= "//<?= HLEB_MAIN_DOMAIN;?>/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src= "//<?= HLEB_MAIN_DOMAIN;  ?>/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src= "//<?= HLEB_MAIN_DOMAIN;?>/vendor/twbs/bootstrap/dist/js/bootstrap.js"></script>
+    <script src= "//<?= HLEB_MAIN_DOMAIN;  ?>/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src= "//<?= HLEB_MAIN_DOMAIN;?>/js/ie10-viewport-bug-workaround.js"></script>
 
     <!-- Custom scripts for all pages-->

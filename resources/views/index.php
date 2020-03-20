@@ -6,44 +6,6 @@
                     <span class="badge  badge-success"><i class="fas fa-chart-line"></i>
                         </span> Ваши прогресс заявок</div>
             <div class="card-body" id="ticketCount">
-
-                <canvas id="myChart" width="400" height="400"></canvas>
-                <script>
-                    var ctx = document.getElementById('myChart').getContext('2d');
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ['Открытых', 'В обработке', 'Переадресованных', 'Закрытых'],
-                            datasets: [{
-                                label: '# of Votes',
-                                data: [12, 19, 3, 5],
-                                backgroundColor: [
-                                    'rgba(255, 0, 0, 1)',
-                                    'rgba(255, 193, 7, 1)',
-                                    'rgba(0, 123, 255, 1)',
-                                    'rgba(108, 117, 125, 1)'
-                                ],
-                                borderColor: [
-                                    'rgba(255, 0, 0, 1)',
-                                    'rgba(255, 193, 7, 1)',
-                                    'rgba(0, 123, 255, 1)',
-                                    'rgba(108, 117, 125, 1)'
-                                ],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true
-                                    }
-                                }]
-                            }
-                        }
-                    });
-                </script>
-
                 <button class="btn btn-success" onclick="window.location = 'ticket/add'">Создать заявку</button>
             </div>
         </div>
