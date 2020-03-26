@@ -16,14 +16,12 @@ class IndexController extends \MainController
     function login(){
         if (!empty($_GET)) {
             if (!UserModel::checkData($_GET['login'], $_GET['password'])) {
-//                redirect('/401');
-                var_dump(!UserModel::checkData($_GET['login'], $_GET['password']));
             }else{
                 $role_arr = UserModel::getUserSatus($_GET);
                 foreach ($role_arr as $row){
-                    $role = $row['status'];
+                    $status = $row['status'];
                 }
-                if ($role == '1'){
+                if ($status == '1'){
                     UserModel::login($_GET['login']);
                     redirect('/');
                 }else{

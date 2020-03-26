@@ -44,7 +44,11 @@
 </div>
 
 <script type="text/javascript">
-   setInterval(ticket_count, 10000);
+    window.onload = function() {
+        setInterval(ticket_count, 30000);
+    }
+
+
 </script>
 
 <!-- Logout Modal-->
@@ -63,7 +67,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6 ">
                             <label for="userEmail">Email</label>
-                            <input type="email" READONLY class="form-control" name="email" id="userEmail" placeholder="Email" aria-describedby="EmailHelpBlock" value="<?php echo $_SESSION['account']['email'] ?>">
+                            <input type="email" READONLY class="form-control" name="email" readonly id="userEmail" placeholder="Email" aria-describedby="EmailHelpBlock" value="<?php echo $_SESSION['account']['email'] ?>">
                             <small id="EmailHelpBlock" class="form-text text-muted ">
                                 Ваш емайл.
                             </small>
@@ -71,7 +75,7 @@
                         <div class="form-group col-md-6">
 
                             <label for="UserPhone">Телефон для связи:</label>
-                            <input type="text" READONLY class="form-control" name="UserPhone" id="UserPhone" aria-describedby="UserPhoneHelpBlock" placeholder="Телефон для связи" value="<?php echo $_SESSION['account']['phone'] ?>">
+                            <input type="text" READONLY class="form-control" name="UserPhone" id="UserPhone" aria-describedby="UserPhoneHelpBlock" placeholder="Телефон для связи" value="">
                             <small id="UserPhoneHelpBlock" class="form-text text-muted text-right">
                                 Ваш рабочий телефон.
                             </small>

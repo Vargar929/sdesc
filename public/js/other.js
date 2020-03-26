@@ -6,7 +6,7 @@ function ticket_count(){
         url: ticket_data,
         data: "id=1&status=1",
         success: function(msg){
-            document.getElementById('open').innerText= msg;
+            document.getElementById('open').innerText= msg['COUNT(ti_id)'];
             // console.log( "Status 1 Data Saved: " + msg );
         }
     });
@@ -15,7 +15,7 @@ function ticket_count(){
         url: ticket_data,
         data: "id=1&status=2",
         success: function(msg){
-            document.getElementById('proces').innerText= msg ;
+            document.getElementById('proces').innerText= msg['COUNT(ti_id)'] ;
         }
     });
     $.ajax({
@@ -23,7 +23,7 @@ function ticket_count(){
         url: ticket_data,
         data: "id=1&status=3",
         success: function(msg){
-            document.getElementById('reject').innerText= msg ;
+            document.getElementById('reject').innerText= msg['COUNT(ti_id)'] ;
         }
     });
     $.ajax({
@@ -31,7 +31,7 @@ function ticket_count(){
         url: ticket_data,
         data: "id=1&status=4",
         success: function(msg){
-            document.getElementById('closed').innerText= msg ;
+            document.getElementById('closed').innerText= msg['COUNT(ti_id)'] ;
         }
     });
     $.ajax({
@@ -39,7 +39,7 @@ function ticket_count(){
         url: ticket_data,
         data: "id=1&status=",
         success: function(msg){
-            document.getElementById('all').innerText= msg ;
+            document.getElementById('all').innerText= msg['COUNT(ti_id)'] ;
         }
     });
 

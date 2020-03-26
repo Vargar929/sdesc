@@ -6,10 +6,10 @@
  * Time: 17:21
  */
 
-namespace App\Models\REST;
+namespace App\REST\Models;
 
 use App\Models\UserModel;
-use App\REST\RESTController;
+use App\REST\Controllers\RESTController;
 use DB;
 use Firebase\JWT\JWT;
 use PDO;

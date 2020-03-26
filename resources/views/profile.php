@@ -40,7 +40,7 @@
                                             <label style="font-weight:bold;">Ф. И. О.</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                            <?=$_SESSION['account']['l_name'].'   '.$_SESSION['account']['f_name']?>
+                                            <?=$_SESSION['account']['l_name'].'   '.$_SESSION['account']['f_name'].'   '.$_SESSION['account']['m_name']?>
                                         </div>
                                     </div>
                                     <hr />
@@ -59,7 +59,7 @@
                                             <label style="font-weight:bold;">Телефон</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                            <?=$_SESSION['account']['phone']?>
+                                            <?=$_SESSION['account']['mobile_phone']?>
                                         </div>
                                     </div>
                                     <hr />
@@ -68,7 +68,7 @@
                                             <label style="font-weight:bold;">Должность</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-
+                                            <?=$_SESSION['account']['company_post']?>
                                         </div>
                                     </div>
                                     <hr />
@@ -81,6 +81,7 @@
                                     </div>
                                     <hr/>
                                     Facebook, Google, Twitter Account that are connected to this account
+                                    <?php var_dump($_SESSION);?>
                                 </div>
                             </div>
                         </div>

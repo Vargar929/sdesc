@@ -9,3 +9,5 @@
 /start.hleb.php
 /vendor/*
 /public/vendor/*
+public/vendor/fortawesome/*
+

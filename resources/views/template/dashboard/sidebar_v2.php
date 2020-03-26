@@ -93,7 +93,7 @@
         <div class="sidebar-footer">
             <a href="/tickets">
                 <span class="badge badge-light  text-warning"><i class="fa fa-bell"></i>
-                <span class="badge badge-pill badge-warning notification"  id="notify">3</span></span>
+                <span class="badge badge-pill badge-warning notification"  id="notify" hidden></span></span>
             </a>
             <a href="/messages">
                 <span class="badge badge-light text-success"><i class="fa fa-envelope"></i>
@@ -122,7 +122,8 @@
                             if (msg === 0) {
                                 document.getElementById('notify').setAttribute("hidden","hidden");
                             }else {
-                                document.getElementById('notify').innerText = msg;
+                                document.getElementById('notify').removeAttribute("hidden","hidden");
+                                document.getElementById('notify').innerText =  msg['COUNT(ti_id)'];
                             }
                         }
                     });

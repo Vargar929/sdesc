@@ -24,7 +24,9 @@
             <div class="modal-body">Выберите «Выход из системы» ниже, если вы готовы завершить текущий сеанс.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Отмена</button>
-                <a class="btn btn-primary" href="/logout">Выход из системы</a>
+                <form action="/logout" method="post">
+                    <button class="btn btn-primary" type="submit">Выход из системы </button>
+                </form>
             </div>
         </div>
     </div>

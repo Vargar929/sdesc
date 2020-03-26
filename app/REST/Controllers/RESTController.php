@@ -6,14 +6,11 @@
  * Time: 11:43
  */
 
-namespace App\REST;
+namespace App\REST\Controllers;
 
 
-use App\Models\REST\RESTModel;
-use App\Models\TestModel;
 use App\Models\TicketModel;
-use App\Models\UserModel;
-use Firebase\JWT\JWT;
+use App\REST\Models\RESTModel;
 
 
 class RESTController extends \MainController

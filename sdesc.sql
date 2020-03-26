@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 19 2020 г., 15:28
+-- Время создания: Мар 26 2020 г., 07:02
 -- Версия сервера: 5.7.26
 -- Версия PHP: 7.2.18
 
@@ -57,6 +57,36 @@ CREATE TABLE IF NOT EXISTS `comments` (
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `personal_info`
+--
+
+DROP TABLE IF EXISTS `personal_info`;
+CREATE TABLE IF NOT EXISTS `personal_info` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `f_name` varchar(200) DEFAULT NULL,
+  `l_name` varchar(200) DEFAULT NULL,
+  `m_name` varchar(200) DEFAULT NULL,
+  `inn` bigint(13) UNSIGNED DEFAULT NULL,
+  `mobile_phone` bigint(11) UNSIGNED DEFAULT NULL,
+  `ip` bigint(11) UNSIGNED DEFAULT NULL,
+  `tab_num` int(10) DEFAULT NULL,
+  `company_post` varchar(200) DEFAULT NULL,
+  `region` int(8) DEFAULT NULL,
+  `date_password` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `personal_info`
+--
+
+INSERT INTO `personal_info` (`id`, `user_id`, `f_name`, `l_name`, `m_name`, `inn`, `mobile_phone`, `ip`, `tab_num`, `company_post`, `region`, `date_password`) VALUES
+(1, 1, 'Денис', 'Рыков', 'Игорьевич', 951025351348, 8710515252, 3232235806, 16435, '16', 5006, '2020-03-16 09:35:32');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `tickets`
 --
 
@@ -75,6 +105,18 @@ CREATE TABLE IF NOT EXISTS `tickets` (
   `ti_phone` varchar(16) DEFAULT NULL,
   PRIMARY KEY (`ti_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `tickets`
+--
+
+INSERT INTO `tickets` (`ti_id`, `title`, `text`, `user_id`, `owner_id`, `priority`, `status`, `ti_accept`, `ti_date`, `ti_email`, `ti_phone`) VALUES
+(1, 'Проблема с эл. Почтой', 'HIHDICDHIS', 1, 1, 5, 1, NULL, '2020-03-20', 'Rykov_D@zashita.railways.kz', ' 77710515252'),
+(2, 'Проблема с эл. Почтой', 'HIHDICDHIS', 1, 1, 5, 2, NULL, '2020-03-20', 'Rykov_D@zashita.railways.kz', ' 77710515252'),
+(3, 'Проблема с эл. Почтой', 'HIHDICDHIS', 1, 1, 5, 3, NULL, '2020-03-20', 'Rykov_D@zashita.railways.kz', ' 77710515252'),
+(4, 'Проблема с эл. Почтой', 'HIHDICDHIS', 1, 1, 5, 4, NULL, '2020-03-20', 'Rykov_D@zashita.railways.kz', ' 77710515252'),
+(5, 'Проблема с эл. Почтой', 'HIHDICDHIS', 1, 1, 5, 1, NULL, '2020-03-20', 'Rykov_D@zashita.railways.kz', ' 77710515252'),
+(6, 'Проблема с эл. Почтой', 'HIHDICDHIS', 1, 1, 5, 2, NULL, '2020-03-20', 'Rykov_D@zashita.railways.kz', ' 77710515252');
 
 -- --------------------------------------------------------
 

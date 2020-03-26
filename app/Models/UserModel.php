@@ -35,12 +35,17 @@ class UserModel extends MainModel
     {
         $sql = "SELECT
        u.id, u.email,
-       ui.user_id, ui.f_name, ui.l_name, ui.m_name, ui.phone, INET_NTOA(ui.ip), ui.date_password
+       pi.id, user_id, f_name, l_name, m_name, inn, mobile_phone, INET_NTOA(ip), tab_num, company_post, region, date_password
 FROM
-     user_info ui, users u
+     personal_info pi, users u
 WHERE
-      ui.user_id = u.id and u.email = '".$login."'";
+        pi.user_id = u.id and u.email = '".$login."'";
         $data =  DB::run($sql)->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($data as $u_data){
+            $u_data;
+        }
+        $sql = "UPDATE personal_info SET ip=INET_ATON('".get_ip()."') where user_id = '".$u_data['id']."';";
+        DB::run($sql);
         $_SESSION['account'] = $data[0];
     }
 

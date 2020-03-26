@@ -111,7 +111,7 @@ function RenderUserAvatar($f_name, $l_name)
     return $avatar;
 }
 
- function randomSecretKey(int $secret_key_max_lenght) {
+function randomSecretKey(int $secret_key_max_lenght) {
     $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
     $pass = array(); 
     $alphaLength = strlen($alphabet) - 1; 
@@ -205,6 +205,16 @@ function current_season() {
     $image_path = $icons[$season];
 
     echo $image_path;
+}
+function get_ip(){
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    } else {
+        $ip = $_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
 }
 
 
