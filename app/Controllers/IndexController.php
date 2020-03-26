@@ -31,11 +31,6 @@ class IndexController extends \MainController
         }
         return render('login page',['title'=>'Вход']);
     }
-//	function login(){
-//            return render('login page',[ 'title'=>'Вход']);
-////        return view("index");
-//
-//    }
 
     /**
      *

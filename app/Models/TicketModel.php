@@ -57,9 +57,21 @@ class TicketModel extends MainModel
         }
     }
     static function getAllDataFrmTicketWhereByUserID($get){
-        if (!empty($get['id'])) {
-            $id = $get['id'];
-            $sql = "select * from tickets where user_id = '" . $id . "';";
+        if (!empty($get['user_id'])) {
+            $id = $_GET['user_id'];
+            $status = $_GET['status'];
+            $sql = "select * from tickets where user_id = '" . $id . "' and status = '".$status."' ;";
+            $rez = DB::run($sql)->fetchAll(PDO::FETCH_OBJ);
+            return $rez;
+        }else{
+            return false;
+        }
+    }
+    static function getAllDataFrmTicketWhereByOwnerID($get){
+        if (!empty($get['user_id'])) {
+            $id = $get['user_id'];
+            $status = $_GET['status'];
+            $sql = "select * from tickets where owner_id = '" . $id . "'and status = '".$status."' ;";
             $rez = DB::run($sql)->fetchAll(PDO::FETCH_ASSOC);
             return $rez;
         }else{

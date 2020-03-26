@@ -36,11 +36,22 @@ function putNewTickets(){
 
 function getAllData()
 {
-    $arr = TicketModel::getAllDataFrmTicketWhereByUserID($_GET);
-    foreach ($arr as $p_arr ){
-        echo json_encode($p_arr, JSON_FORCE_OBJECT | JSON_UNESCAPED_UNICODE);
+    header('Content-Type: application/json');
+    if(!empty($_GET)){
+        if(isset($_GET['system_role'])&&($_GET['system_role']=1)&&isset($_GET['user_id'])&&isset($_GET['status'])){
+            $arr = TicketModel::getAllDataFrmTicketWhereByUserID($_GET);
+                echo json_encode($arr);
+
+        }else if(isset($_GET['system_role'])&&($_GET['system_role']=2)&&isset($_GET['user_id'])&&isset($_GET['status'])) {
+            $arr = TicketModel::getAllDataFrmTicketWhereByOwnerID($_GET);
+            foreach ($arr as $p_arr) {
+                echo json_encode($p_arr, JSON_FORCE_OBJECT | JSON_UNESCAPED_UNICODE);
+            }
+        }
+
     }
-//    header('Content-Type: application/json');
+
+
 }
 
 /**

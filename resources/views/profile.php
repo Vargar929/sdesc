@@ -10,7 +10,7 @@
                             </div>
                             <div class="userData ml-3">
                                 <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a href="javascript:void(0);"> </a></h2>
-                                <h6 class="d-block"> "АО"НК"КТЖ" - "<a href="javascript:void(0)"> </a>"</h6>
+                                <h6 class="d-block"> "АО"НК"КТЖ" - "<a href="javascript:void(0)"><?=$_SESSION['account']['region']?></a>"</h6>
                                 <h6 class="d-block"><a href="javascript:void(0)"> </a></h6>
                                 <h6 class="d-block"><a href="javascript:void(0)"> </a></h6>
                             </div>
@@ -30,7 +30,7 @@
                                     <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Основная информация</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">Дополнительные сведения</a>
+                                    <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">Персональные сведения</a>
                                 </li>
                             </ul>
                             <div class="tab-content ml-1" id="myTabContent">
@@ -50,7 +50,7 @@
                                             <label style="font-weight:bold;">E-Mail</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                            <?=$_SESSION['account']['email']?>
+                                            <a href="mailto:<?=$_SESSION['account']['email']?>"><?=$_SESSION['account']['email']?></a>
                                         </div>
                                     </div>
                                     <hr />
@@ -75,13 +75,41 @@
                                 </div>
                                 <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
                                     <div class="row">
-                                        <div class="col-md-12 col-12">
-                                            <h2 class="d-block text-center">Дополнительная информация</h2>
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Табельный</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            <?=$_SESSION['account']['tab_num']?>
                                         </div>
                                     </div>
-                                    <hr/>
-                                    Facebook, Google, Twitter Account that are connected to this account
-                                    <?php var_dump($_SESSION);?>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">ИИН</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            <?=$_SESSION['account']['inn']?>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">IP адрес входа</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            <?=$_SESSION['account']['INET_NTOA(ip)']?>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Дата последней смены пароля</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            <?=$_SESSION['account']['date_password']?>
+                                        </div>
+                                    </div>
+                                    <hr />
                                 </div>
                             </div>
                         </div>

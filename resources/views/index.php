@@ -75,7 +75,7 @@
                         <div class="form-group col-md-6">
 
                             <label for="UserPhone">Телефон для связи:</label>
-                            <input type="text" READONLY class="form-control" name="UserPhone" id="UserPhone" aria-describedby="UserPhoneHelpBlock" placeholder="Телефон для связи" value="">
+                            <input type="text" class="form-control" name="UserPhone" id="UserPhone" aria-describedby="UserPhoneHelpBlock" placeholder="Телефон для связи" value="">
                             <small id="UserPhoneHelpBlock" class="form-text text-muted text-right">
                                 Ваш рабочий телефон.
                             </small>

@@ -45,7 +45,7 @@
                             <span>Рабочая область</span></a>
                     </li>
                     <li>
-                        <a class="nav-link" href="/ticket">
+                        <a class="nav-link" href="/tickets">
                             <i class="fas fa-fw fa-table"></i>
                             <span>Заявки</span></a>
                     </li>
