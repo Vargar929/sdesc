@@ -22,26 +22,23 @@ class RESTController extends \MainController
         return $url;
     }
 
-
-
-function getAllTickets(){
+    function getAllTickets(){
     $arr = TicketModel::getCountFromAllTicketByUerID($_GET);
     header('Content-Type: application/json');
     echo json_encode($arr,JSON_FORCE_OBJECT);
 }
 
-function putNewTickets(){
-   echo TicketModel::WriteNewTickets(json_decode($_POST['jsonData'],JSON_FORCE_OBJECT));
+    function putNewTickets(){
+   echo TicketModel::WriteNewTickets(json_encode($_POST['jsonData'],JSON_FORCE_OBJECT));
 }
 
-function getAllData()
+    function getAllData()
 {
     header('Content-Type: application/json');
     if(!empty($_GET)){
         if(isset($_GET['system_role'])&&($_GET['system_role']=1)&&isset($_GET['user_id'])&&isset($_GET['status'])){
             $arr = TicketModel::getAllDataFrmTicketWhereByUserID($_GET);
                 echo json_encode($arr);
-
         }else if(isset($_GET['system_role'])&&($_GET['system_role']=2)&&isset($_GET['user_id'])&&isset($_GET['status'])) {
             $arr = TicketModel::getAllDataFrmTicketWhereByOwnerID($_GET);
             foreach ($arr as $p_arr) {
@@ -52,19 +49,5 @@ function getAllData()
     }
 
 
-}
-
-/**
- *
- */
-
-function login_API()
-{
-    header("Access-Control-Allow-Origin: " . self::http_host_uri());
-    header("Content-Type: application/json; charset=UTF-8");
-    header("Access-Control-Allow-Methods: POST");
-    header("Access-Control-Max-Age: 3600");
-    header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-    RESTModel::auth_User($_GET);
 }
 }

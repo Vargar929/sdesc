@@ -13,15 +13,20 @@ use PDO;
 
 class UserModel extends MainModel
 {
+
     /**
      * @param $login
      * @param $password
      * @return bool
      */
+
+
+
     static function checkData($login, $password)
     {
 
         $hash = DB::run("SELECT password FROM users WHERE email=?", [$login])->fetchColumn();
+
         if (!$hash or !password_verify($password, $hash)) {
             return false;
         }
@@ -33,13 +38,22 @@ class UserModel extends MainModel
      */
     static function login($login)
     {
+        function get_ip(){
+            if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+                $ip = $_SERVER['HTTP_CLIENT_IP'];
+            } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            } else {
+                $ip = $_SERVER['REMOTE_ADDR'];
+            }
+            return $ip;
+        }
         $sql = "SELECT
-       u.id, u.email,
-       pi.id, user_id, f_name, l_name, m_name, inn, mobile_phone, INET_NTOA(ip), tab_num, company_post, region, date_password
+       u.id, u.email,u.role, u.status, pi.user_id, f_name, l_name, m_name, inn, mobile_phone, INET_NTOA(ip), tab_num, company_post, region, date_password, r.role_name
 FROM
-     personal_info pi, users u
+     personal_info pi, users u, roles r
 WHERE
-        pi.user_id = u.id and u.email = '".$login."'";
+        pi.user_id = u.id and r.id = u.role and u.email = '".$login."'";
         $data =  DB::run($sql)->fetchAll(PDO::FETCH_ASSOC);
         foreach ($data as $u_data){
             $u_data;
@@ -47,6 +61,7 @@ WHERE
         $sql = "UPDATE personal_info SET ip=INET_ATON('".get_ip()."') where user_id = '".$u_data['id']."';";
         DB::run($sql);
         $_SESSION['account'] = $data[0];
+        return $data[0];
     }
 
     /**
@@ -64,21 +79,20 @@ WHERE
      * @return array
      */
     static function getUserSatus($get){
-        $params = ['login'=>$get['login'],];
+        $params = ['login'=>$get,];
         $sql="SELECT status from users where email = :login";
-        return DB::run($sql,$params)->fetchAll(PDO::FETCH_ASSOC);
+        return DB::run($sql,$params)->fetchColumn();
     }
 
     static function getUserData($data){
-        $email = htmlspecialchars(strip_tags($data['email']));
+
         $sql = "SELECT
-       u.id, u.email,
-       ui.f_name, ui.l_name, ui.m_name, ui.phone
+       u.id, u.email,u.role, u.status, pi.user_id, f_name, l_name, m_name, inn, mobile_phone, INET_NTOA(ip), tab_num, company_post, region, date_password, r.role_name
 FROM
-     user_info ui, users u
+     personal_info pi, users u, roles r
 WHERE
-      ui.user_id = u.id and u.email = ?";
-        $arr = DB::run($sql,[$email])->fetchAll(PDO::FETCH_ASSOC);
+        pi.user_id = u.id and r.id = u.role and u.email = ?";
+        $arr = DB::run($sql,[$data])->fetchAll(PDO::FETCH_ASSOC);
         foreach ($arr as $arr) {
             return $arr;
         }

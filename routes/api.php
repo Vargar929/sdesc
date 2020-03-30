@@ -16,3 +16,5 @@ Radjax\Route::get("/search", ["get"], "App\Controllers\RESTController@jsonPoisk"
 Radjax\Route::get("/api/v1/login", ["get"], "App\REST\Controllers\RESTController@login_API", ["protected"=>false, "autoloader" => true, "save_session" => false,"add_headers"=>true]);
 
 //API ROUTES
+Radjax\Route::get("/restdroid/signin", ["post","get"], "App\REST\Controllers\RESTfDroidApi@signin_RESTodroid_API", ["protected"=>false, "autoloader" => true, "save_session" => false,"add_headers"=>true]);
+Radjax\Route::get("/restdroid/signup", ["post","get"], "App\REST\Controllers\RESTfDroidApi@signup_RESTodroid_API", ["protected"=>false, "autoloader" => true, "save_session" => false,"add_headers"=>true]);

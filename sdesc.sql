@@ -170,9 +170,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `status`, `role`) VALUES
-(1, 'Rykov_D@zashita.railways.kz', '$2y$10$GOmPZX.VWURKk6vkKSWIL.QDLT7vcKOLwN4sk02Wa8eW1zJTYGIBC', 1, '5'),
-(2, 'Ivanov_I@ktzh.railways.kz', '$2y$10$GOmPZX.VWURKk6vkKSWIL.QDLT7vcKOLwN4sk02Wa8eW1zJTYGIBC', 1, '1'),
-(3, 'Service_M@railways.kz', '1', 2, '2');
+(1, 'Rykov_D@zashita.railways.kz', '$2y$10$GOmPZX.VWURKk6vkKSWIL.QDLT7vcKOLwN4sk02Wa8eW1zJTYGIBC', 1, '5');
 
 -- --------------------------------------------------------
 
