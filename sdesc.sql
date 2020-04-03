@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 26 2020 г., 07:02
+-- Время создания: Апр 03 2020 г., 12:38
 -- Версия сервера: 5.7.26
 -- Версия PHP: 7.2.18
 
@@ -41,18 +41,23 @@ CREATE TABLE IF NOT EXISTS `activity` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `comments`
+-- Структура таблицы `messages`
 --
 
-DROP TABLE IF EXISTS `comments`;
-CREATE TABLE IF NOT EXISTS `comments` (
-  `comm_id` int(11) NOT NULL AUTO_INCREMENT,
-  `ti_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `comm_text` varchar(255) DEFAULT NULL,
-  `comm_date` datetime NOT NULL,
-  PRIMARY KEY (`comm_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `messages`;
+CREATE TABLE IF NOT EXISTS `messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_to` int(11) NOT NULL,
+  `user_from` int(11) NOT NULL,
+  `subject` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `message` text CHARACTER SET latin1 NOT NULL,
+  `respond` int(11) NOT NULL DEFAULT '0',
+  `sender_open` enum('y','n') CHARACTER SET latin1 NOT NULL DEFAULT 'y',
+  `receiver_open` enum('y','n') CHARACTER SET latin1 NOT NULL DEFAULT 'n',
+  `sender_delete` enum('y','n') CHARACTER SET latin1 NOT NULL DEFAULT 'n',
+  `receiver_delete` enum('y','n') CHARACTER SET latin1 NOT NULL DEFAULT 'n',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -75,14 +80,15 @@ CREATE TABLE IF NOT EXISTS `personal_info` (
   `region` int(8) DEFAULT NULL,
   `date_password` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `personal_info`
 --
 
 INSERT INTO `personal_info` (`id`, `user_id`, `f_name`, `l_name`, `m_name`, `inn`, `mobile_phone`, `ip`, `tab_num`, `company_post`, `region`, `date_password`) VALUES
-(1, 1, 'Денис', 'Рыков', 'Игорьевич', 951025351348, 8710515252, 3232235806, 16435, '16', 5006, '2020-03-16 09:35:32');
+(1, 1, 'Денис', 'Рыков', 'Игорьевич', 951025351348, 8710515252, 3232235806, 16435, '16', 5006, '2020-03-16 09:35:32'),
+(2, 2, 'Георгий', 'Колмаков', 'Александрович', 951025351348, 8710515252, 3232235806, 16435, '16', 5006, '2020-03-16 09:35:32');
 
 -- --------------------------------------------------------
 
@@ -104,19 +110,24 @@ CREATE TABLE IF NOT EXISTS `tickets` (
   `ti_email` varchar(50) DEFAULT NULL,
   `ti_phone` varchar(16) DEFAULT NULL,
   PRIMARY KEY (`ti_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `tickets`
 --
 
 INSERT INTO `tickets` (`ti_id`, `title`, `text`, `user_id`, `owner_id`, `priority`, `status`, `ti_accept`, `ti_date`, `ti_email`, `ti_phone`) VALUES
-(1, 'Проблема с эл. Почтой', 'HIHDICDHIS', 1, 1, 5, 1, NULL, '2020-03-20', 'Rykov_D@zashita.railways.kz', ' 77710515252'),
-(2, 'Проблема с эл. Почтой', 'HIHDICDHIS', 1, 1, 5, 2, NULL, '2020-03-20', 'Rykov_D@zashita.railways.kz', ' 77710515252'),
-(3, 'Проблема с эл. Почтой', 'HIHDICDHIS', 1, 1, 5, 3, NULL, '2020-03-20', 'Rykov_D@zashita.railways.kz', ' 77710515252'),
-(4, 'Проблема с эл. Почтой', 'HIHDICDHIS', 1, 1, 5, 4, NULL, '2020-03-20', 'Rykov_D@zashita.railways.kz', ' 77710515252'),
-(5, 'Проблема с эл. Почтой', 'HIHDICDHIS', 1, 1, 5, 1, NULL, '2020-03-20', 'Rykov_D@zashita.railways.kz', ' 77710515252'),
-(6, 'Проблема с эл. Почтой', 'HIHDICDHIS', 1, 1, 5, 2, NULL, '2020-03-20', 'Rykov_D@zashita.railways.kz', ' 77710515252');
+(1, 'Проверка работы системы', 'В данном примере с помощью команды group by строки группируются по возрасту и для каждой группы через запятую выводятся имена работников с таким возрастом:', 1, 2, 1, 1, NULL, '2020-03-26', 'Rykov_D@zashita.railways.kz', '87233760300'),
+(2, 'Проверка работы системы', 'В данном примере с помощью команды group by строки группируются по возрасту и для каждой группы через запятую выводятся имена работников с таким возрастом:', 2, 1, 2, 2, NULL, '2020-03-26', 'Rykov_D@zashita.railways.kz', '87233760300'),
+(3, 'Проверка работы системы', 'В данном примере с помощью команды group by строки группируются по возрасту и для каждой группы через запятую выводятся имена работников с таким возрастом:', 2, 1, 5, 2, NULL, '2020-03-26', 'Rykov_D@zashita.railways.kz', '87233760300'),
+(4, 'Проверка работы системы', 'В данном примере с помощью команды group by строки группируются по возрасту и для каждой группы через запятую выводятся имена работников с таким возрастом:', 1, 2, 3, 3, NULL, '2020-03-26', 'Rykov_D@zashita.railways.kz', '87233760300'),
+(5, 'Проверка работы системы', 'В данном примере с помощью команды group by строки группируются по возрасту и для каждой группы через запятую выводятся имена работников с таким возрастом:', 2, 1, 4, 4, NULL, '2020-03-26', 'Rykov_D@zashita.railways.kz', '87233760300'),
+(6, 'Проверка работы системы', 'В данном примере с помощью команды group by строки группируются по возрасту и для каждой группы через запятую выводятся имена работников с таким возрастом:', 1, 2, 5, 1, NULL, '2020-03-26', 'Rykov_D@zashita.railways.kz', '87233760300'),
+(7, 'Проверка работы системы', 'В данном примере с помощью команды group by строки группируются по возрасту и для каждой группы через запятую выводятся имена работников с таким возрастом:', 2, 1, 1, 2, NULL, '2020-03-26', 'Rykov_D@zashita.railways.kz', '87233760300'),
+(8, 'Проверка работы системы', 'В данном примере с помощью команды group by строки группируются по возрасту и для каждой группы через запятую выводятся имена работников с таким возрастом:', 1, 2, 2, 3, NULL, '2020-03-26', 'Rykov_D@zashita.railways.kz', '87233760300'),
+(9, 'Проверка работы системы', 'В данном примере с помощью команды group by строки группируются по возрасту и для каждой группы через запятую выводятся имена работников с таким возрастом:', 2, 1, 3, 4, NULL, '2020-03-26', 'Rykov_D@zashita.railways.kz', '87233760300'),
+(10, 'Проверка работы системы', 'В данном примере с помощью команды group by строки группируются по возрасту и для каждой группы через запятую выводятся имена работников с таким возрастом:', 1, 2, 4, 1, NULL, '2020-03-26', 'Rykov_D@zashita.railways.kz', '87233760300'),
+(11, 'Проверка работы системы', 'В данном примере с помощью команды group by строки группируются по возрасту и для каждой группы через запятую выводятся имена работников с таким возрастом:', 1, 2, 1, 3, NULL, '2020-03-26', 'Rykov_D@zashita.railways.kz', '87233760300');
 
 -- --------------------------------------------------------
 
@@ -163,14 +174,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `status` int(1) DEFAULT NULL,
   `role` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
 -- Дамп данных таблицы `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `status`, `role`) VALUES
-(1, 'Rykov_D@zashita.railways.kz', '$2y$10$GOmPZX.VWURKk6vkKSWIL.QDLT7vcKOLwN4sk02Wa8eW1zJTYGIBC', 1, '5');
+(1, 'Rykov_D@zashita.railways.kz', '$2y$10$GOmPZX.VWURKk6vkKSWIL.QDLT7vcKOLwN4sk02Wa8eW1zJTYGIBC', 1, '5'),
+(2, 'Kolmakov_G@ktzh.railways.kz', '$2y$10$GOmPZX.VWURKk6vkKSWIL.QDLT7vcKOLwN4sk02Wa8eW1zJTYGIBC', 1, '1');
 
 -- --------------------------------------------------------
 
