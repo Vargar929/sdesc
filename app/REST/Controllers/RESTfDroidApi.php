@@ -23,10 +23,11 @@ function signin_RESTodroid_API(){
     header("Access-Control-Allow-Methods: POST");
     header("Access-Control-Max-Age: 3600");
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-        $email = htmlspecialchars(strip_tags( $_POST['email']));
-        $password = htmlspecialchars(strip_tags( $_POST['password']));
+
 
         if(isset($_POST)){
+            $email = htmlspecialchars(strip_tags( $_POST['username']));
+            $password = htmlspecialchars(strip_tags( $_POST['password']));
             if(RESTModel::isUserExisted($email)&&UserModel::checkData($email,$password)){
                 $userStatus = UserModel::checkData($email,$password);
                 $key = "144541354333adswcxs2axas24xcas1x456as47d532c4w";
@@ -59,7 +60,7 @@ function signin_RESTodroid_API(){
                     // код ответа
                     http_response_code(200);
                     $jwt = JWT::encode($token, $key);
-                    $json['success'] = 1;
+                    $json['error'] = false;
                     $json['message'] = 'User Successfully logged';
                     $json['jwt'] = $jwt;
                     echo json_encode($json);
@@ -67,17 +68,17 @@ function signin_RESTodroid_API(){
                     // код ответа
                     http_response_code(401);
                     // сказать пользователю что войти не удалось
-                    $json['success'] = 0;
-                    $json['message'] = 'Wrong email or password';
+                    $json['error'] = false;
+                    $json['message'] = 'Invalid username or password';
                     echo json_encode($json);
                 }
             } else {
-                $json['success'] = 0;
-                $json['message'] = 'Wrong email or password';
+                $json['error'] = false;
+                $json['message'] = 'Invalid username or password';
                 echo json_encode($json);
             }
         }else {
-            $json['success'] = 0;
+            $json['error'] = true;
             $json['message'] = 'Wrong method request';
             echo json_encode($json);
         }
