@@ -4,6 +4,7 @@
 namespace App\REST\Controllers;
 
 
+use App\Models\TicketModel;
 use App\Models\UserModel;
 use App\REST\Models\RESTModel;
 use Firebase\JWT\JWT;
@@ -17,7 +18,7 @@ class RESTfDroidApi extends \MainController
         return $url;
     }
 
-function signin_RESTodroid_API(){
+    function signin_RESTodroid_API(){
     header("Access-Control-Allow-Origin: " . self::http_host_uri());
     header("Content-Type: application/json; charset=UTF-8");
     header("Access-Control-Allow-Methods: POST");
@@ -29,30 +30,26 @@ function signin_RESTodroid_API(){
             $email = htmlspecialchars(strip_tags( $_POST['username']));
             $password = htmlspecialchars(strip_tags( $_POST['password']));
             if(RESTModel::isUserExisted($email)&&UserModel::checkData($email,$password)){
+                $date = date("Y-m-d H:i:s");
+
                 $userStatus = UserModel::checkData($email,$password);
                 $key = "144541354333adswcxs2axas24xcas1x456as47d532c4w";
                 $iss = RESTController::http_host_uri();
                 $aud = RESTController::http_host_uri();
-                $iat = 1356999524;
-                $nbf = 1357000000;
+                $iat = strtotime($date);
+                $nbf = strtotime(str_replace('-', '/', $date) . "+1 days");
+
                 if ($userStatus) {
                     $token = array(
                         "iss" => $iss,
                         "aud" => $aud,
                         "iat" => $iat,
                         "nbf" => $nbf,
-                        "data" => array(
+                        "user" => array(
                             "id" =>UserModel::getUserData($email)['user_id'],
                             "firstname" => UserModel::getUserData($email)['f_name'],
                             "lastname" => UserModel::getUserData($email)['l_name'],
                             "email" => UserModel::getUserData($email)['email'],
-                            "iin" => UserModel::getUserData($email)['inn'],
-                            "mobile_phone" => UserModel::getUserData($email)['mobile_phone'],
-                            "ip" => UserModel::getUserData($email)['INET_NTOA(ip)'],
-                            "tab_num" => UserModel::getUserData($email)['tab_num'],
-                            "company_post" => UserModel::getUserData($email)['company_post'],
-                            "region" => UserModel::getUserData($email)['region'],
-                            "date_password" => UserModel::getUserData($email)['date_password'],
                             "role" => UserModel::getUserData($email)['role_name'],
                         )
                     );
@@ -85,6 +82,60 @@ function signin_RESTodroid_API(){
 
 
 }
+
+    function tickets_RESTodroid_API(){
+        header("Access-Control-Allow-Origin: " . self::http_host_uri());
+        header("Content-Type: application/json; charset=UTF-8");
+        header("Access-Control-Allow-Methods: POST");
+        header("Access-Control-Max-Age: 3600");
+        header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+        if(isset($_GET)){
+            if (isset($_GET['status'])&&!empty($_GET['status'])&&!empty($_GET['id'])){
+                $params = [
+                    "id"=>$_GET['id'],
+                    "status"=>$_GET['status'],
+                ];
+                $arr = TicketModel::getAllDataFrmTicketWhereByUserID($params);
+                $json['error'] = false;
+                $json['message'] = 'Tickets get successfull';
+                $json['tickets'] = $arr;
+                echo json_encode($json);
+            }elseif(!isset($_GET['status'])&&!empty($_GET['id'])){
+                $params = [
+                    "id"=>$_GET['id'],
+                ];
+                $arr = TicketModel::getAllDataFrmTicketWhereByUserID($params);
+                $json['error'] = false;
+                $json['message'] = 'Tickets get successfull';
+                $json['tickets'] = $arr;
+                echo json_encode($json);
+            }elseif (isset($_GET['status'])&&!isset($_GET['id'])){
+                $params = [
+                    "status"=>$_GET['status'],
+                ];
+                $arr = TicketModel::getAllDataFrmTicketWhereByUserID($params);
+                $json['error'] = false;
+                $json['message'] = 'Tickets get successfull';
+                $json['tickets'] = $arr;
+                echo json_encode($json);
+            }elseif (!isset($_GET['status'])&&!isset($_GET['id'])){
+                $params = [
+                ];
+                $arr = TicketModel::getAllDataFrmTicketWhereByUserID($params);
+                $json['error'] = false;
+                $json['message'] = 'Tickets get successfull';
+                $json['tickets'] = $arr;
+                echo json_encode($json);
+            }
+
+        }else {
+            $json['error'] = true;
+            $json['message'] = 'Wrong method request';
+            echo json_encode($json);
+        }
+
+    }
 
 
 

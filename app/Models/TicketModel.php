@@ -41,7 +41,7 @@ class TicketModel extends MainModel
      * @return int
      */
     static function getCountFromAllTicketByUerID($get){
-        if (!empty($get['status'])) {
+        if (isset($get['status'])&&!empty($get['status'])) {
             $id = $get['id'];
             $status = $get['status'];
 //            $sql = "select ti_id from tickets where user_id = '" . $id . "' AND status = '" . $status . "';";
@@ -56,16 +56,27 @@ class TicketModel extends MainModel
             return $rez;
         }
     }
+
     static function getAllDataFrmTicketWhereByUserID($get){
-        if (!empty($get['user_id'])) {
-            $id = $_GET['user_id'];
-            $status = $_GET['status'];
-            $sql = "select * from tickets where user_id = '" . $id . "' and status = '".$status."' ;";
-            $rez = DB::run($sql)->fetchAll(PDO::FETCH_OBJ);
-            return $rez;
+        if(!empty($get)){
+            if (isset($get['status'])&&!empty($get['id'])) {
+                $id = $get['id'];
+                $status = $get['status'];
+                $sql = "select * from tickets where user_id = '" . $id . "' and status = '".$status."' ;";
+                $rez = DB::run($sql)->fetchAll(PDO::FETCH_ASSOC);
+                return $rez;
+            }elseif (!isset($get['status'])&&!empty($get['id'])){
+                $id = $get['id'];
+                $sql = "select * from tickets where user_id = '" . $id . "';";
+                $rez = DB::run($sql)->fetchAll(PDO::FETCH_ASSOC);
+                return $rez;
+            }
         }else{
-            return false;
+            $sql = "select * from tickets";
+            $rez = DB::run($sql)->fetchAll(PDO::FETCH_ASSOC);
+            return $rez;
         }
+
     }
     static function getAllDataFrmTicketWhereByOwnerID($get){
         if (!empty($get['user_id'])) {
