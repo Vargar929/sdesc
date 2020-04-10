@@ -1,3 +1,45 @@
+GET http://pch38.tk/restdroid/newti?email=drycov@ya.ru&phone=72337605212&title=test&priority=1&desc=test
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-04-10T050931.200.html
+
+###
+
+GET http://pch38.tk/restdroid/newti?email=drycov@ya.ru&phone=72337605212&title=test&priority=1&desc=test
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-04-10T050845.200.html
+
+###
+
+GET http://pch38.tk/restdroid/newti
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-04-10T050713.200.html
+
+###
+
+GET http://pch38.tk/restdroid/newti
+Accept: */*
+Cache-Control: no-cache
+{}:
+
+<> 2020-04-10T050701.400.html
+
+###
+
+POST http://pch38.tk/restdroid/newti
+Accept: */*
+Cache-Control: no-cache
+{}:
+
+<> 2020-04-10T050636.400.html
+
+###
+
 GET http://sdesc.test/api/v1/get_all_ticket_data?system_role=1&user_id=1&status=1
 Accept: */*
 Cache-Control: no-cache

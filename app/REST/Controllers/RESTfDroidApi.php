@@ -137,6 +137,29 @@ class RESTfDroidApi extends \MainController
 
     }
 
+    function new_ticket_RESTodroid_API(){
+        header("Access-Control-Allow-Origin: " . self::http_host_uri());
+        header("Content-Type: application/json; charset=UTF-8");
+        header("Access-Control-Allow-Methods: POST");
+        header("Access-Control-Max-Age: 3600");
+        header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+        if(isset($_POST)){
+        $json['error'] = false;
+        $json['message'] = 'Success created new ticket.';
+        $json['result'] = TicketModel::WriteNewTickets($_POST);
+        echo json_encode($json);
+        }elseif(isset($_GET)){
+            $json['error'] = false;
+            $json['message'] = 'Success created new ticket.';
+            $json['result'] = TicketModel::WriteNewTickets($_GET);
+            echo json_encode($json);
+        }else {
+            $json['error'] = true;
+            $json['message'] = 'Wrong method request';
+            echo json_encode($json);
+        }
+    }
+
 
 
 }

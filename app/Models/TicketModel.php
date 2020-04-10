@@ -19,13 +19,15 @@ class TicketModel extends MainModel
      */
     static  function WriteNewTickets($data){
         if (!empty($data)){
+//            'user_id'=>$_SESSION['account']['id'],
+
             $params = [
                 'email'=>$data['email'],
                 'phone'=>$data['UserPhone'],
                 'title'=>$data['ticketTitle'],
                 'priority'=>$data['ticketPriority'],
                 'desc'=>$data['TicketDesc'],
-                'user_id'=>$_SESSION['account']['id'],
+                'user_id'=>'1',
                 'status'=>'1',
                 'ti_date'=>date('Y-m-d'),
                 ];
