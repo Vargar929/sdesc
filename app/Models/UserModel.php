@@ -98,5 +98,25 @@ WHERE
         }
     }
 
-
+    static function createNewUser($email,$password){
+        $params = [
+            'email' => $email,
+            'password'=>password_hash($password,PASSWORD_BCRYPT ),
+            'status'=>'1',
+            'role'=>'1'
+        ];
+        $sql = "INSERT INTO users(email, password,role) VALUES(:email, :password,:role)";
+        DB::run($sql,$params);
+        return DB::lastInsertId();
+    }
+//    static function updateUserStatus(id){
+//        $params = [
+//            'email' => $email,
+//            'password'=>password_hash($password,PASSWORD_BCRYPT ),
+//            'role'=>'1'
+//        ];
+//        $sql = "INSERT INTO users(email, password,role) VALUES(:email, :password,:role)";
+//        DB::run($sql,$params);
+//        return DB::lastInsertId();
+//    }
 }
