@@ -245,14 +245,12 @@ class RESTfDroidApi extends \MainController
                     'email' => $_POST['email'],
                     'sms_key'=> $ver_code
                 ];
-                $json['error'] = false;
-                $json['message'] = 'Success created new ticket.';
-                $json['result'] = RESTModel::checkVerCode($params);
+                 RESTModel::putVerCode($params);
             }
         }
     }
 
-function verify_sms_RESTodroid_API(){
+    function verify_sms_RESTodroid_API(){
     header("Access-Control-Allow-Origin: " . self::http_host_uri());
     header("Content-Type: application/json; charset=UTF-8");
     header("Access-Control-Allow-Methods: POST");
