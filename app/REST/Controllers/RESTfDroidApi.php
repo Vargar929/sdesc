@@ -224,7 +224,13 @@ class RESTfDroidApi extends \MainController
     }
 
     function confirm_new_user_RESTodroid_API(){
-            if (isset($_POST)){
+        header("Access-Control-Allow-Origin: " . self::http_host_uri());
+        header("Content-Type: application/json; charset=UTF-8");
+        header("Access-Control-Allow-Methods: POST");
+        header("Access-Control-Max-Age: 3600");
+        header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+        if (isset($_POST)){
             var_dump($_POST);
             if(!empty($_POST['email'])&&!empty($_POST['uphone'])){
                 $ver_code =  self::randomSMSKey(6);
@@ -239,10 +245,39 @@ class RESTfDroidApi extends \MainController
                     'email' => $_POST['email'],
                     'sms_key'=> $ver_code
                 ];
-                RESTModel::putVerCode($params);
+                $json['error'] = false;
+                $json['message'] = 'Success created new ticket.';
+                $json['result'] = RESTModel::checkVerCode($params);
             }
         }
     }
+
+function verify_sms_RESTodroid_API(){
+    header("Access-Control-Allow-Origin: " . self::http_host_uri());
+    header("Content-Type: application/json; charset=UTF-8");
+    header("Access-Control-Allow-Methods: POST");
+    header("Access-Control-Max-Age: 3600");
+    header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+    if (isset($_POST)){
+        var_dump($_POST);
+        if(!empty($_POST['email'])&&!empty($_POST['vcode'])){
+            $params = [
+                'email' => $_POST['email'],
+                'sms_key'=> $_POST['vcode']
+            ];
+            if(RESTModel::checkVerCode($params)){
+                $json['error'] = false;
+                $json['message'] = 'Success verification.';
+                $json['status'] = true;
+            }else{
+                $json['error'] = false;
+                $json['message'] = 'Error verification.';
+                $json['status'] = false;
+            }
+        }
+    }
+
+}
 
 
 }

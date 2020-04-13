@@ -59,4 +59,18 @@ class RESTModel extends \MainModel
         DB::run($sql,$params);
     }
 
+    public static function checkVerCode(array $data)
+    {
+        $params = [
+            'email' => $data['email']
+        ];
+        $sql = "SELECT sms_key FROM checked_sms where email = :email;";
+        $code = DB::run($sql,$params)->fetchAll(PDO::FETCH_ASSOC);
+        if ($code ==  $data['sms_key']){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
