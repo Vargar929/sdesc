@@ -37,7 +37,7 @@ class RESTModel extends \MainModel
         }
     }
     static  function isUserValidToLogin($data) {
-      $email = $_POST['email'];
+      $email = $data['email'];
         $sql = "SELECT email FROM users WHERE email = '".$email."'";
 
         $result = mysqli_query($this->DB_CONNECTION, $sql);
@@ -50,12 +50,12 @@ class RESTModel extends \MainModel
     }
     static function putVerCode($data){
         $params = [
-            'user_id'=>$data['uid'],
+            'email'=>$data['email'],
             'sms_key'=>$data['sms_key'],
             'key_time' => strtotime(str_replace('-', '/',  date("Y-m-d H:i:s")) . "+30 minutes"),
             'ip'=>"'".self::get_ip()."'",
         ];
-        $sql = "INSERT INTO checked_sms(user_id, sms_key, key_time, user_ip) VALUES(:user_id, :sms_key, :key_time, :ip)";
+        $sql = "INSERT INTO checked_sms(email, sms_key, key_time, user_ip) VALUES(:email, :sms_key, :key_time, :ip)";
         DB::run($sql,$params);
     }
 
