@@ -91,8 +91,8 @@ WHERE
 FROM
      personal_info pi, users u, roles r
 WHERE
-        pi.user_id = u.id and r.id = u.role and u.email = ?";
-        $arr = DB::run($sql,[$data])->fetchAll(PDO::FETCH_ASSOC);
+        pi.user_id = u.id and r.id = u.role and u.email = '".$login."'";
+        $arr = DB::run($sql)->fetchAll(PDO::FETCH_ASSOC);
         foreach ($arr as $arr) {
             return $arr;
         }
@@ -100,23 +100,61 @@ WHERE
 
     static function createNewUser($email,$password){
         $params = [
+            'username'=>stristr($email, '@', true),
             'email' => $email,
             'password'=>password_hash($password,PASSWORD_BCRYPT ),
             'status'=>'1',
             'role'=>'1'
         ];
-        $sql = "INSERT INTO users(email, password,role) VALUES(:email, :password,:role)";
+        $sql = "INSERT INTO users(username, email, password, status, role) VALUES(:username, :email,:password,:status,:role)";
+       DB::run($sql,$params);
+        return DB::lastInsertId();
+    }
+    static function createUserInfo($data)
+    {
+        function get_ip(){
+            if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+                $ip = $_SERVER['HTTP_CLIENT_IP'];
+            } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            } else {
+                $ip = $_SERVER['REMOTE_ADDR'];
+            }
+            return $ip;
+        }
+        $params1 = [
+            'uid'=>$data['uid'],
+            'fname'=>$data['fname'],
+            'lname'=>$data['lname'],
+            'mname'=>$data['mname'],
+            'uinn'=>$data['uinn'],
+            'uphone'=>$data['uphone'],
+            'utabnum'=>$data['utabnum'],
+            'ucp'=>$data['ucp'],
+            'uregion'=>$data['uregion']
+        ];
+        $params2 = [
+            'ip'=>get_ip(),
+            'date_p'=>date("Y-m-d H:i:s")
+        ];
+        //pi.user_id, f_name, l_name, m_name, inn, mobile_phone, INET_NTOA(ip), tab_num, company_post, region, date_password,
+        $params = array_merge($params1, $params2);
+        $sql= "insert into personal_info(user_id, f_name, l_name, m_name, inn, mobile_phone, 
+                           tab_num, company_post, region,ip, date_password) values(:uid,:fname,:lname,:mname,:uinn,:uphone,:utabnum,:ucp,:uregion,INET_ATON(:ip),:date_p) ";
         DB::run($sql,$params);
         return DB::lastInsertId();
     }
-//    static function updateUserStatus(id){
-//        $params = [
-//            'email' => $email,
-//            'password'=>password_hash($password,PASSWORD_BCRYPT ),
-//            'role'=>'1'
-//        ];
-//        $sql = "INSERT INTO users(email, password,role) VALUES(:email, :password,:role)";
-//        DB::run($sql,$params);
-//        return DB::lastInsertId();
-//    }
+    static function getUserInfo($data){
+
+        $sql = "SELECT
+        u.email,u.username, pi.user_id, f_name, l_name, m_name, inn, mobile_phone, INET_NTOA(ip), tab_num, company_post, region, date_password
+FROM
+     personal_info pi, users u
+WHERE
+        pi.user_id = u.id and u.id = :uid";
+        $arr = DB::run($sql,$data)->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($arr as $arr) {
+            return $arr;
+        }
+    }
 }

@@ -51,22 +51,20 @@ class RESTModel extends \MainModel
     static function putVerCode($data){
         $params = [
             'email'=>$data['email'],
+            'uphone'=>$data['uphone'],
             'sms_key'=>$data['sms_key'],
             'key_time' => strtotime(str_replace('-', '/',  date("Y-m-d H:i:s")) . "+30 minutes"),
             'ip'=>"'".self::get_ip()."'",
         ];
-        $sql = "INSERT INTO checked_sms(email, sms_key, key_time, user_ip) VALUES(:email, :sms_key, :key_time, :ip)";
+        $sql = "INSERT INTO checked_sms(email,uphone, sms_key, key_time, user_ip) VALUES(:email,:uphone, :sms_key, :key_time, :ip)";
         DB::run($sql,$params);
     }
 
-    public static function checkVerCode(array $data)
+    public static function checkVerCode($data)
     {
-        $params = [
-            'email' => $data['email']
-        ];
-        $sql = "SELECT sms_key FROM checked_sms where email = :email;";
-        $code = DB::run($sql,$params)->fetchAll(PDO::FETCH_ASSOC);
-        if ($code ==  $data['sms_key']){
+        $sql = "SELECT sms_key FROM checked_sms where email = '".$data['email']."'and sms_key ='".$data['sms_key']."';";
+       $code = DB::run($sql)->fetch(PDO::FETCH_ASSOC);
+        if ($code['sms_key'] ==  $data['sms_key']){
             return true;
         }else{
             return false;

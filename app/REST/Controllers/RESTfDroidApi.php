@@ -133,6 +133,78 @@ class RESTfDroidApi extends \MainController
 
 
 }
+    function set_user_info_RESTodroid_API(){
+        header("Access-Control-Allow-Origin: " . self::http_host_uri());
+        header("Content-Type: application/json; charset=UTF-8");
+        header("Access-Control-Allow-Methods: POST");
+        header("Access-Control-Max-Age: 3600");
+        header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+        if(isset($_POST)){
+            $uid = htmlspecialchars(strip_tags( $_POST['uid']));
+            $fname = htmlspecialchars(strip_tags( $_POST['fname']));
+            $lname = htmlspecialchars(strip_tags( $_POST['lname']));
+            $mname = htmlspecialchars(strip_tags( $_POST['mname']));
+            $uinn = htmlspecialchars(strip_tags( $_POST['uinn']));
+            $ucp = htmlspecialchars(strip_tags( $_POST['ucp']));
+            $uregion = htmlspecialchars(strip_tags( $_POST['uregion']));
+            $utabnum = htmlspecialchars(strip_tags( $_POST['utabnum']));
+            $uphone = htmlspecialchars(strip_tags( $_POST['uphone']));
+            $params = [
+                'uid'=>$uid,
+                'fname'=>$fname,
+                'lname'=>$lname,
+                'mname'=>$mname,
+                'uinn'=>$uinn,
+                'uphone'=>$uphone,
+                'utabnum'=>$utabnum,
+                'ucp'=>$ucp,
+                'uregion'=>$uregion
+            ];
+            $id=UserModel::createUserInfo($params);
+            if($id>0){
+                $json['error'] = false;
+                $json['message'] = 'Success created new user.';
+                echo json_encode($json);
+
+            }else{
+                $json['error'] = false;
+                $json['message'] = 'Error created new ticket.';
+                echo json_encode($json);
+
+            }
+
+        }else {
+            $json['error'] = true;
+            $json['message'] = 'Wrong method request';
+            echo json_encode($json);
+        }
+    }
+    function get_user_info_RESTodroid_API(){
+        header("Access-Control-Allow-Origin: " . self::http_host_uri());
+        header("Content-Type: application/json; charset=UTF-8");
+        header("Access-Control-Allow-Methods: POST");
+        header("Access-Control-Max-Age: 3600");
+        header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+        if(isset($_POST)){
+            $uid = htmlspecialchars(strip_tags( $_POST['uid']));
+            $key = "144541354333adswcxs2axas24xcas1x456as47d532c4w";
+            $params = [
+                'uid'=>$uid,
+                ];
+
+            $info = UserModel::getUserInfo($params);
+            http_response_code(200);
+            $jwt = JWT::encode($info, $key);
+            $json['error'] = true;
+            $json['message'] = 'Wrong method request';
+            $json['uinfo']=$jwt;
+            echo json_encode($json);
+        }else{
+            $json['error'] = true;
+            $json['message'] = 'Wrong method request';
+            echo json_encode($json);
+        }
+    }
 
     function tickets_RESTodroid_API(){
         header("Access-Control-Allow-Origin: " . self::http_host_uri());
@@ -243,6 +315,7 @@ class RESTfDroidApi extends \MainController
                 }
                 $params = [
                     'email' => $_POST['email'],
+                    'uphone'=>$_POST['uphone'],
                     'sms_key'=> $ver_code
                 ];
                  RESTModel::putVerCode($params);
@@ -257,20 +330,24 @@ class RESTfDroidApi extends \MainController
     header("Access-Control-Max-Age: 3600");
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
     if (isset($_POST)){
-        var_dump($_POST);
-        if(!empty($_POST['email'])&&!empty($_POST['vcode'])){
+        if(!empty($_POST['username'])&&!empty($_POST['vcode'])){
             $params = [
-                'email' => $_POST['email'],
+                'email' => $_POST['username'],
                 'sms_key'=> $_POST['vcode']
             ];
-            if(RESTModel::checkVerCode($params)){
+            $status = RESTModel::checkVerCode($params);
+            if($status){
                 $json['error'] = false;
                 $json['message'] = 'Success verification.';
                 $json['status'] = true;
+                echo json_encode($json);
+
             }else{
                 $json['error'] = false;
                 $json['message'] = 'Error verification.';
                 $json['status'] = false;
+                echo json_encode($json);
+
             }
         }
     }
