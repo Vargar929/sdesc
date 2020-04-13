@@ -34,7 +34,7 @@ class Route
         return call_user_func_array(array(self::instance(), $method), $args);
     }
 
-    /**
+    /*
        $route = "/page/{number?}/",
        $type = ["get", "post", "delete"],
        $controller = "App\Controllers\TestController@index",
@@ -45,12 +45,10 @@ class Route
          "save_session" => false,
          "before" => "App\Middleware\Before\UserAuth@index",
          "add_headers" => true,
-     ]
-     * @param string $route
-     * @param array $type
-     * @param string $controller
-     * @param array $params
-     */
+
+     ] */
+
+
 
     public static function get(string $route, array $type , string $controller, array $params)
     {

@@ -31,6 +31,8 @@ class MainConnector implements Connector
             'YoHang88\LetterAvatar\LetterAvatar'=>'vendor/yohang88/letter-avatar/LetterAvatar.php',//Generate user avatar using name initials letter.
             'Firebase\JWT\JWT'=>'vendor/firebase/php-jwt/src/JWT.php', //JSON Web Token — это открытый стандарт для создания токенов доступа,
             'id009\QRGenerator'=>'vendor/phpqrcode/Generator.php', //PHP QR Code   library for generating QR Code
+            'Garik\HttpRequest'=>'vendor/httprequest/HttpRequest.php',
+            'GuzzleHttp\ClientInterface'=>''
             //"XdORM\XD" => "vendor/phphleb/xdorm/XD.php",
             //'Phphleb\Adminpan\MainAdminPanel'=>'vendor/phphleb/adminpan/MainAdminPanel.php',
             // ... //

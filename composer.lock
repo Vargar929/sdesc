@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd5d1855e337eb4eb00bb3e7f723e91e",
+    "content-hash": "6fd873b0286a175a5298377d9d71ba8f",
     "packages": [
         {
             "name": "components/bootstrap",
@@ -72,6 +72,10 @@
                 "responsive",
                 "web"
             ],
+            "support": {
+                "issues": "https://github.com/components/bootstrap/issues",
+                "source": "https://github.com/components/bootstrap/tree/3.4.1"
+            },
             "time": "2019-05-08T19:36:29+00:00"
         },
         {
@@ -114,6 +118,13 @@
             ],
             "description": "jQuery JavaScript Library",
             "homepage": "http://jquery.com",
+            "support": {
+                "forum": "http://forum.jquery.com",
+                "irc": "irc://irc.freenode.org/jquery",
+                "issues": "https://github.com/jquery/jquery/issues",
+                "source": "https://github.com/jquery/jquery",
+                "wiki": "http://docs.jquery.com/"
+            },
             "time": "2019-10-23T05:15:13+00:00"
         },
         {
@@ -157,47 +168,6 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "jQuery UI Team",
-                    "homepage": "http://jqueryui.com/about"
-                },
-                {
-                    "name": "Joern Zaefferer",
-                    "email": "joern.zaefferer@gmail.com",
-                    "homepage": "http://bassistance.de"
-                },
-                {
-                    "name": "Scott Gonzalez",
-                    "email": "scott.gonzalez@gmail.com",
-                    "homepage": "http://scottgonzalez.com"
-                },
-                {
-                    "name": "Kris Borchers",
-                    "email": "kris.borchers@gmail.com",
-                    "homepage": "http://krisborchers.com"
-                },
-                {
-                    "name": "Mike Sherov",
-                    "email": "mike.sherov@gmail.com",
-                    "homepage": "http://mike.sherov.com"
-                },
-                {
-                    "name": "TJ VanToll",
-                    "email": "tj.vantoll@gmail.com",
-                    "homepage": "http://tjvantoll.com"
-                },
-                {
-                    "name": "Corey Frang",
-                    "email": "gnarf37@gmail.com",
-                    "homepage": "http://gnarf.net"
-                },
-                {
-                    "name": "Felix Nagel",
-                    "email": "info@felixnagel.com",
-                    "homepage": "http://www.felixnagel.com"
-                }
-            ],
             "description": "jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library. Whether you're building highly interactive web applications or you just need to add a date picker to a form control, jQuery UI is the perfect choice.",
             "time": "2016-09-16T05:47:55+00:00"
         },
@@ -222,6 +192,10 @@
             ],
             "description": "DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, which will add advanced interaction controls to any HTML table.",
             "homepage": "http://www.datatables.net/",
+            "support": {
+                "forum": "https://datatables.net/forums",
+                "source": "https://github.com/DataTables/DataTablesSrc/"
+            },
             "time": "2019-10-01T13:42:32+00:00"
         },
         {
@@ -262,22 +236,62 @@
             "license": [
                 "Apache-2.0"
             ],
+            "description": "A datepicker for Bootstrap",
+            "time": "2019-05-20T07:36:46+00:00"
+        },
+        {
+            "name": "firebase/php-jwt",
+            "version": "v5.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/firebase/php-jwt.git",
+                "reference": "feb0e820b8436873675fd3aca04f3728eb2185cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/feb0e820b8436873675fd3aca04f3728eb2185cb",
+                "reference": "feb0e820b8436873675fd3aca04f3728eb2185cb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=4.8 <=9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Firebase\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
             "authors": [
                 {
-                    "name": "Andrew Rowls",
-                    "email": "eternicode@gmail.com"
+                    "name": "Neuman Vong",
+                    "email": "neuman+pear@twilio.com",
+                    "role": "Developer"
                 },
                 {
-                    "name": "Community",
-                    "homepage": "https://github.com/uxsolutions/bootstrap-datepicker/contributors"
+                    "name": "Anant Narayanan",
+                    "email": "anant@php.net",
+                    "role": "Developer"
                 }
             ],
-            "description": "A datepicker for Bootstrap",
+            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+            "homepage": "https://github.com/firebase/php-jwt",
             "keywords": [
-                "bootstrap",
-                "datepicker"
+                "jwt",
+                "php"
             ],
-            "time": "2019-05-20T07:36:46+00:00"
+            "support": {
+                "issues": "https://github.com/firebase/php-jwt/issues",
+                "source": "https://github.com/firebase/php-jwt/tree/master"
+            },
+            "time": "2020-03-25T18:49:23+00:00"
         },
         {
             "name": "fortawesome/font-awesome",
@@ -340,6 +354,12 @@
                 "icon",
                 "svg"
             ],
+            "support": {
+                "docs": "http://fontawesome.com/how-to-use",
+                "email": "hello@fontawesome.com",
+                "issues": "https://github.com/FortAwesome/Font-Awesome/issues",
+                "source": "https://github.com/FortAwesome/Font-Awesome"
+            },
             "time": "2020-02-05T14:36:40+00:00"
         },
         {
@@ -389,28 +409,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                },
-                {
-                    "name": "Tobias Schultze",
-                    "homepage": "https://github.com/Tobion"
-                }
-            ],
             "description": "PSR-7 message implementation that also provides common utility methods",
-            "keywords": [
-                "http",
-                "message",
-                "psr-7",
-                "request",
-                "response",
-                "stream",
-                "uri",
-                "url"
-            ],
             "time": "2019-07-01T23:21:34+00:00"
         },
         {
@@ -481,6 +480,10 @@
                 "thumbnail",
                 "watermark"
             ],
+            "support": {
+                "issues": "https://github.com/Intervention/image/issues",
+                "source": "https://github.com/Intervention/image/tree/master"
+            },
             "time": "2019-11-02T09:15:47+00:00"
         },
         {
@@ -544,20 +547,8 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Kris Wallsmith",
-                    "email": "kris.wallsmith@gmail.com",
-                    "homepage": "http://kriswallsmith.net/"
-                }
-            ],
             "description": "Asset Management for PHP",
             "homepage": "https://github.com/kriswallsmith/assetic",
-            "keywords": [
-                "assets",
-                "compression",
-                "minification"
-            ],
             "time": "2016-11-11T18:43:20+00:00"
         },
         {
@@ -579,26 +570,8 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "mouse0270",
-                    "email": "rmcintosh@remabledesigns.com",
-                    "homepage": "http://bootstrap-notify.remabledesigns.com/",
-                    "role": "Developer"
-                }
-            ],
             "description": "This is a simple pluging that turns standard Bootstrap alerts into \"Growl-like\" notifications.",
             "homepage": "http://bootstrap-notify.remabledesigns.com/",
-            "keywords": [
-                "bootstrap",
-                "growl",
-                "jquery",
-                "message",
-                "notice",
-                "notification",
-                "notifications",
-                "notify"
-            ],
             "time": "2015-04-29T14:43:04+00:00"
         },
         {
@@ -640,6 +613,10 @@
                 "JS",
                 "chart"
             ],
+            "support": {
+                "issues": "https://github.com/chartjs/Chart.js/issues",
+                "source": "https://github.com/chartjs/Chart.js/tree/v3.0.0-alpha"
+            },
             "time": "2020-03-12T00:53:29+00:00"
         },
         {
@@ -672,20 +649,23 @@
             ],
             "description": "Debug panel for Micro-Framework HLEB",
             "homepage": "https://phphleb.ru",
+            "support": {
+                "source": "https://github.com/phphleb/debugpan/tree/v1.1.0"
+            },
             "time": "2020-02-01T19:26:09+00:00"
         },
         {
             "name": "phphleb/framework",
-            "version": "v1.5.0",
+            "version": "v1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phphleb/framework.git",
-                "reference": "e5452d3e654220641dd4de9cb81d7ce277ede0ed"
+                "reference": "acdb7a78f290626b20ccd1e00025a5e3633b92b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phphleb/framework/zipball/e5452d3e654220641dd4de9cb81d7ce277ede0ed",
-                "reference": "e5452d3e654220641dd4de9cb81d7ce277ede0ed",
+                "url": "https://api.github.com/repos/phphleb/framework/zipball/acdb7a78f290626b20ccd1e00025a5e3633b92b8",
+                "reference": "acdb7a78f290626b20ccd1e00025a5e3633b92b8",
                 "shasum": ""
             },
             "require": {
@@ -714,7 +694,10 @@
                 "php framework",
                 "phphleb"
             ],
-            "time": "2020-03-07T11:15:54+00:00"
+            "support": {
+                "source": "https://github.com/phphleb/framework/tree/v1.5.1"
+            },
+            "time": "2020-04-02T14:19:07+00:00"
         },
         {
             "name": "phphleb/xdorm",
@@ -758,6 +741,9 @@
                 "orm",
                 "php"
             ],
+            "support": {
+                "source": "https://github.com/phphleb/xdorm/tree/master"
+            },
             "time": "2019-12-22T13:35:45+00:00"
         },
         {
@@ -792,22 +778,8 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
             "description": "Common interface for HTTP messages",
             "homepage": "https://github.com/php-fig/http-message",
-            "keywords": [
-                "http",
-                "http-message",
-                "psr",
-                "psr-7",
-                "request",
-                "response"
-            ],
             "time": "2016-08-06T14:39:51+00:00"
         },
         {
@@ -841,44 +813,33 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Ralph Khattar",
-                    "email": "ralph.khattar@gmail.com"
-                }
-            ],
             "description": "A polyfill for getallheaders.",
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
             "name": "robloach/component-installer",
-            "version": "0.2.3",
+            "version": "0.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobLoach/component-installer.git",
-                "reference": "908a859aa7c4949ba9ad67091e67bac10b66d3d7"
+                "reference": "1864f25db21fc173e02a359f646acd596c1b0460"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/908a859aa7c4949ba9ad67091e67bac10b66d3d7",
-                "reference": "908a859aa7c4949ba9ad67091e67bac10b66d3d7",
+                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/1864f25db21fc173e02a359f646acd596c1b0460",
+                "reference": "1864f25db21fc173e02a359f646acd596c1b0460",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.0",
                 "kriswallsmith/assetic": "1.*",
                 "php": ">=5.3.2"
             },
             "require-dev": {
-                "composer/composer": "1.*@alpha",
-                "phpunit/phpunit": "4.*"
+                "composer/composer": "1.*"
             },
-            "type": "composer-plugin",
+            "type": "composer-installer",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                },
-                "class": "ComponentInstaller\\ComponentInstallerPlugin"
+                "class": "ComponentInstaller\\Installer"
             },
             "autoload": {
                 "psr-0": {
@@ -889,28 +850,21 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Rob Loach",
-                    "homepage": "http://robloach.net"
-                }
-            ],
             "description": "Allows installation of Components via Composer.",
-            "abandoned": "oomphinc/composer-installers-extender",
-            "time": "2015-08-10T12:35:38+00:00"
+            "time": "2013-08-31T23:46:48+00:00"
         },
         {
             "name": "symfony/process",
-            "version": "v3.4.38",
+            "version": "v3.4.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "b03b02dcea26ba4c65c16a73bab4f00c186b13da"
+                "reference": "1dbc09f6e14703ae2398efc86b02ae2bcd9a9931"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/b03b02dcea26ba4c65c16a73bab4f00c186b13da",
-                "reference": "b03b02dcea26ba4c65c16a73bab4f00c186b13da",
+                "url": "https://api.github.com/repos/symfony/process/zipball/1dbc09f6e14703ae2398efc86b02ae2bcd9a9931",
+                "reference": "1dbc09f6e14703ae2398efc86b02ae2bcd9a9931",
                 "shasum": ""
             },
             "require": {
@@ -946,7 +900,10 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2020-02-04T08:04:52+00:00"
+            "support": {
+                "source": "https://github.com/symfony/process/tree/3.4"
+            },
+            "time": "2020-03-20T06:07:50+00:00"
         },
         {
             "name": "twbs/bootstrap",
@@ -997,6 +954,10 @@
                 "sass",
                 "web"
             ],
+            "support": {
+                "issues": "https://github.com/twbs/bootstrap/issues",
+                "source": "https://github.com/twbs/bootstrap/tree/v4.4.1"
+            },
             "time": "2019-11-28T12:59:49+00:00"
         },
         {
@@ -1032,21 +993,8 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Yoga Hanggara",
-                    "email": "yohang88@gmail.com",
-                    "homepage": "https://yohang.net",
-                    "role": "Developer"
-                }
-            ],
             "description": "Generate user avatar using name initials letter.",
             "homepage": "https://github.com/yohang88/letter-avatar",
-            "keywords": [
-                "avatar",
-                "letter avatar",
-                "profile picture"
-            ],
             "time": "2019-10-03T03:14:25+00:00"
         }
     ],
@@ -1061,8 +1009,10 @@
     "platform": {
         "php": "^7.0.0",
         "ext-json": "*",
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "ext-mysqli": "*",
+        "ext-curl": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

@@ -17,5 +17,6 @@ Radjax\Route::get("/api/v1/login", ["get"], "App\REST\Controllers\RESTController
 
 //API ROUTES
 Radjax\Route::get("/restdroid/signin", ["post","get"], "App\REST\Controllers\RESTfDroidApi@signin_RESTodroid_API", ["protected"=>false, "autoloader" => true, "save_session" => false,"add_headers"=>true]);
-Radjax\Route::get("/restdroid/tickets", ["get"], "App\REST\Controllers\RESTfDroidApi@tickets_RESTodroid_API", ["protected"=>false, "autoloader" => true, "save_session" => false,"add_headers"=>true]);
-Radjax\Route::get("/restdroid/newti", ["get"], "App\REST\Controllers\RESTfDroidApi@new_ticket_RESTodroid_API", ["protected"=>false, "autoloader" => true, "save_session" => false,"add_headers"=>true]);
+Radjax\Route::get("/restdroid/tickets", ["post","get"], "App\REST\Controllers\RESTfDroidApi@tickets_RESTodroid_API", ["protected"=>false, "autoloader" => true, "save_session" => false,"add_headers"=>true]);
+Radjax\Route::get("/restdroid/newti", ["get"], "App\REST\Controllers\RESTfDroidApi@new_ticket_RESTodroid_API", ["protected"=>false, "autoloader" => true, "save_session" => false,"before" => "App\Middleware\Before\ControllerCheck@checkConfirmNewTicket","add_headers"=>true]);
+Radjax\Route::get("/restdroid/cfnewti", ["post"], "App\REST\Controllers\RESTfDroidApi@confirm_new_ticket_RESTodroid_API", ["protected"=>false, "autoloader" => true, "save_session" => false,"add_headers"=>true]);

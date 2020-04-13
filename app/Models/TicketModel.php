@@ -20,14 +20,13 @@ class TicketModel extends MainModel
     static  function WriteNewTickets($data){
         if (!empty($data)){
 //            'user_id'=>$_SESSION['account']['id'],
-
             $params = [
                 'email'=>$data['email'],
                 'phone'=>$data['UserPhone'],
                 'title'=>$data['ticketTitle'],
                 'priority'=>$data['ticketPriority'],
                 'desc'=>$data['TicketDesc'],
-                'user_id'=>'1',
+                'user_id'=>$data['UserID'],
                 'status'=>'1',
                 'ti_date'=>date('Y-m-d'),
                 ];
@@ -81,14 +80,23 @@ class TicketModel extends MainModel
 
     }
     static function getAllDataFrmTicketWhereByOwnerID($get){
-        if (!empty($get['user_id'])) {
-            $id = $get['user_id'];
-            $status = $_GET['status'];
-            $sql = "select * from tickets where owner_id = '" . $id . "'and status = '".$status."' ;";
+        if(!empty($get)){
+            if (isset($get['status'])&&!empty($get['id'])) {
+                $id = $get['id'];
+                $status = $get['status'];
+                $sql = "select * from tickets where owner_id = '" . $id . "' and status = '".$status."' ;";
+                $rez = DB::run($sql)->fetchAll(PDO::FETCH_ASSOC);
+                return $rez;
+            }elseif (!isset($get['status'])&&!empty($get['id'])){
+                $id = $get['id'];
+                $sql = "select * from tickets where owner_id = '" . $id . "';";
+                $rez = DB::run($sql)->fetchAll(PDO::FETCH_ASSOC);
+                return $rez;
+            }
+        }else{
+            $sql = "select * from tickets";
             $rez = DB::run($sql)->fetchAll(PDO::FETCH_ASSOC);
             return $rez;
-        }else{
-            return false;
         }
     }
 

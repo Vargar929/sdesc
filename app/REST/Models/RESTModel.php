@@ -16,6 +16,16 @@ use PDO;
 
 class RESTModel extends \MainModel
 {
+    static function get_ip(){
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
+    }
     static function isUserExisted($data) {
         $sql = "SELECT email FROM users WHERE email = '".$data."' ";
         $result = DB::run($sql);
@@ -37,6 +47,16 @@ class RESTModel extends \MainModel
         }else {
             return false;
         }
+    }
+    static function putVerCode($data){
+        $params = [
+            'user_id'=>$data['uid'],
+            'sms_key'=>$data['sms_key'],
+            'key_time' => strtotime(str_replace('-', '/',  date("Y-m-d H:i:s")) . "+30 minutes"),
+            'ip'=>"'".self::get_ip()."'",
+        ];
+        $sql = "INSERT INTO checked_sms(user_id, sms_key, key_time, user_ip) VALUES(:user_id, :sms_key, :key_time, :ip)";
+        DB::run($sql,$params);
     }
 
 }

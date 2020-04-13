@@ -49,4 +49,8 @@ class ControllerCheck extends \MainMiddleware
     function getRoute(){
         return getMainUrl();
     }
+
+    function checkConfirmNewTicket(){
+
+    }
 }
