@@ -91,8 +91,8 @@ WHERE
 FROM
      personal_info pi, users u, roles r
 WHERE
-        pi.user_id = u.id and r.id = u.role and u.email = '".$login."'";
-        $arr = DB::run($sql)->fetchAll(PDO::FETCH_ASSOC);
+        pi.user_id = u.id and r.id = u.role and u.email = ?";
+        $arr = DB::run($sql,[$data])->fetchAll(PDO::FETCH_ASSOC);
         foreach ($arr as $arr) {
             return $arr;
         }
@@ -144,6 +144,7 @@ WHERE
         DB::run($sql,$params);
         return DB::lastInsertId();
     }
+
     static function getUserInfo($data){
 
         $sql = "SELECT

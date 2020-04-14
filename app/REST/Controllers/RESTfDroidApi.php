@@ -2,13 +2,6 @@
 
 
 namespace App\REST\Controllers;
-define("SMSC_LOGIN", "vargar929");			// логин клиента
-define("SMSC_PASSWORD", "ebbhH7yCGKNfh4aF");	// пароль
-define("SMSC_POST", 0);					// использовать метод POST
-define("SMSC_HTTPS", 0);				// использовать HTTPS протокол
-define("SMSC_CHARSET", "windows-1251");	// кодировка сообщения: utf-8, koi8-r или windows-1251 (по умолчанию)
-define("SMSC_DEBUG", 0);				// флаг отладки
-define("SMTP_FROM", "noreply@pch38.tk");     // e-mail адрес отправителя
 
 use App\Models\TicketModel;
 use App\Models\UserModel;
@@ -195,8 +188,8 @@ class RESTfDroidApi extends \MainController
             $info = UserModel::getUserInfo($params);
             http_response_code(200);
             $jwt = JWT::encode($info, $key);
-            $json['error'] = true;
-            $json['message'] = 'Wrong method request';
+            $json['error'] = false;
+            $json['message'] = 'User Info getting succefull';
             $json['uinfo']=$jwt;
             echo json_encode($json);
         }else{
