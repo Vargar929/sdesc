@@ -91,7 +91,7 @@ WHERE
 FROM
      personal_info pi, users u, roles r
 WHERE
-        pi.user_id = u.id and r.id = u.role and u.email = '".$login."'";
+        pi.user_id = u.id and r.id = u.role and u.email = '".$data."'";
         $arr = DB::run($sql)->fetchAll(PDO::FETCH_ASSOC);
         foreach ($arr as $arr) {
             return $arr;

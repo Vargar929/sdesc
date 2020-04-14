@@ -17,6 +17,10 @@ class ComposerStaticInit9c6768b13bd23d0f573b3b7c8d26069a
         array (
             'YoHang88\\LetterAvatar\\' => 22,
         ),
+        'X' => 
+        array (
+            'XdORM\\' => 6,
+        ),
         'S' => 
         array (
             'Symfony\\Component\\Process\\' => 26,
@@ -38,6 +42,10 @@ class ComposerStaticInit9c6768b13bd23d0f573b3b7c8d26069a
         array (
             'GuzzleHttp\\Psr7\\' => 16,
         ),
+        'F' => 
+        array (
+            'Firebase\\JWT\\' => 13,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -48,6 +56,10 @@ class ComposerStaticInit9c6768b13bd23d0f573b3b7c8d26069a
         'YoHang88\\LetterAvatar\\' => 
         array (
             0 => __DIR__ . '/..' . '/yohang88/letter-avatar/src',
+        ),
+        'XdORM\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phphleb/xdorm',
         ),
         'Symfony\\Component\\Process\\' => 
         array (
@@ -72,6 +84,10 @@ class ComposerStaticInit9c6768b13bd23d0f573b3b7c8d26069a
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
         'App\\' => 
         array (
@@ -100,11 +116,19 @@ class ComposerStaticInit9c6768b13bd23d0f573b3b7c8d26069a
         'App\\Commands\\DefaultTask' => __DIR__ . '/../..' . '/app/Commands/DefaultTask.php',
         'App\\Commands\\RotateLogsTask' => __DIR__ . '/../..' . '/app/Commands/RotateLogsTask.php',
         'App\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Controllers/IndexController.php',
+        'App\\Controllers\\SystemController' => __DIR__ . '/../..' . '/app/Controllers/SystemController.php',
+        'App\\Controllers\\TicketsController' => __DIR__ . '/../..' . '/app/Controllers/TicketsController.php',
+        'App\\Middleware\\After\\DefaultMiddlewareAfter' => __DIR__ . '/../..' . '/app/Middleware/After/DefaultMiddlewareAfter.php',
         'App\\Middleware\\Before\\ControllerCheck' => __DIR__ . '/../..' . '/app/Middleware/Before/ControllerCheck.php',
         'App\\Middleware\\Before\\DebugController' => __DIR__ . '/../..' . '/app/Middleware/Before/DebugController.php',
         'App\\Models\\DefaultModel' => __DIR__ . '/../..' . '/app/Models/DefaultModel.php',
+        'App\\Models\\TestModel' => __DIR__ . '/../..' . '/app/Models/TestModel.php',
+        'App\\Models\\TicketModel' => __DIR__ . '/../..' . '/app/Models/TicketModel.php',
         'App\\Models\\UserModel' => __DIR__ . '/../..' . '/app/Models/UserModel.php',
         'App\\Optional\\MainConnector' => __DIR__ . '/../..' . '/app/Optional/MainConnector.php',
+        'App\\REST\\Controllers\\RESTController' => __DIR__ . '/../..' . '/app/REST/Controllers/RESTController.php',
+        'App\\REST\\Controllers\\RESTfDroidApi' => __DIR__ . '/../..' . '/app/REST/Controllers/RESTfDroidApi.php',
+        'App\\REST\\Models\\RESTModel' => __DIR__ . '/../..' . '/app/REST/Models/RESTModel.php',
         'Assetic\\AssetManager' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/AssetManager.php',
         'Assetic\\AssetWriter' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/AssetWriter.php',
         'Assetic\\Asset\\AssetCache' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/Asset/AssetCache.php',
@@ -144,8 +168,6 @@ class ComposerStaticInit9c6768b13bd23d0f573b3b7c8d26069a
         'Assetic\\Factory\\Loader\\FunctionCallsFormulaLoader' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/Factory/Loader/FunctionCallsFormulaLoader.php',
         'Assetic\\Factory\\Resource\\CoalescingDirectoryResource' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/Factory/Resource/CoalescingDirectoryResource.php',
         'Assetic\\Factory\\Resource\\DirectoryResource' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/Factory/Resource/DirectoryResource.php',
-        'Assetic\\Factory\\Resource\\DirectoryResourceFilterIterator' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/Factory/Resource/DirectoryResource.php',
-        'Assetic\\Factory\\Resource\\DirectoryResourceIterator' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/Factory/Resource/DirectoryResource.php',
         'Assetic\\Factory\\Resource\\FileResource' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/Factory/Resource/FileResource.php',
         'Assetic\\Factory\\Resource\\IteratorResourceInterface' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/Factory/Resource/IteratorResourceInterface.php',
         'Assetic\\Factory\\Resource\\ResourceInterface' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/Factory/Resource/ResourceInterface.php',
@@ -214,7 +236,6 @@ class ComposerStaticInit9c6768b13bd23d0f573b3b7c8d26069a
         'Assetic\\Util\\TraversableString' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/Util/TraversableString.php',
         'Assetic\\Util\\VarUtils' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/Util/VarUtils.php',
         'Assetic\\ValueSupplierInterface' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/ValueSupplierInterface.php',
-        'ComponentInstaller\\ComponentInstallerPlugin' => __DIR__ . '/..' . '/robloach/component-installer/src/ComponentInstaller/ComponentInstallerPlugin.php',
         'ComponentInstaller\\Installer' => __DIR__ . '/..' . '/robloach/component-installer/src/ComponentInstaller/Installer.php',
         'ComponentInstaller\\Process\\BuildJsProcess' => __DIR__ . '/..' . '/robloach/component-installer/src/ComponentInstaller/Process/BuildJsProcess.php',
         'ComponentInstaller\\Process\\CopyProcess' => __DIR__ . '/..' . '/robloach/component-installer/src/ComponentInstaller/Process/CopyProcess.php',
@@ -223,6 +244,11 @@ class ComposerStaticInit9c6768b13bd23d0f573b3b7c8d26069a
         'ComponentInstaller\\Process\\RequireCssProcess' => __DIR__ . '/..' . '/robloach/component-installer/src/ComponentInstaller/Process/RequireCssProcess.php',
         'ComponentInstaller\\Process\\RequireJsProcess' => __DIR__ . '/..' . '/robloach/component-installer/src/ComponentInstaller/Process/RequireJsProcess.php',
         'ComponentInstaller\\Util\\Filesystem' => __DIR__ . '/..' . '/robloach/component-installer/src/ComponentInstaller/Util/Filesystem.php',
+        'Firebase\\JWT\\BeforeValidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/BeforeValidException.php',
+        'Firebase\\JWT\\ExpiredException' => __DIR__ . '/..' . '/firebase/php-jwt/src/ExpiredException.php',
+        'Firebase\\JWT\\JWK' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWK.php',
+        'Firebase\\JWT\\JWT' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWT.php',
+        'Firebase\\JWT\\SignatureInvalidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/SignatureInvalidException.php',
         'GuzzleHttp\\Psr7\\AppendStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/AppendStream.php',
         'GuzzleHttp\\Psr7\\BufferStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/BufferStream.php',
         'GuzzleHttp\\Psr7\\CachingStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/CachingStream.php',
@@ -281,6 +307,7 @@ class ComposerStaticInit9c6768b13bd23d0f573b3b7c8d26069a
         'Hleb\\Constructor\\Routes\\Methods\\RouteMethodRenderMap' => __DIR__ . '/..' . '/phphleb/framework/Constructor/Routes/Methods/RouteMethodRenderMap.php',
         'Hleb\\Constructor\\Routes\\Methods\\RouteMethodType' => __DIR__ . '/..' . '/phphleb/framework/Constructor/Routes/Methods/RouteMethodType.php',
         'Hleb\\Constructor\\Routes\\Methods\\RouteMethodWhere' => __DIR__ . '/..' . '/phphleb/framework/Constructor/Routes/Methods/RouteMethodWhere.php',
+        'Hleb\\Constructor\\Routes\\Route' => __DIR__ . '/..' . '/phphleb/framework/Constructor/Routes/Route.php',
         'Hleb\\Constructor\\TCreator' => __DIR__ . '/..' . '/phphleb/framework/Constructor/TCreator.php',
         'Hleb\\Constructor\\TwigCreator' => __DIR__ . '/..' . '/phphleb/framework/Constructor/TwigCreator.php',
         'Hleb\\Constructor\\VCreator' => __DIR__ . '/..' . '/phphleb/framework/Constructor/VCreator.php',
@@ -288,6 +315,7 @@ class ComposerStaticInit9c6768b13bd23d0f573b3b7c8d26069a
         'Hleb\\Main\\Commands\\MainLaunchTask' => __DIR__ . '/..' . '/phphleb/framework/Main/Commands/MainLaunchTask.php',
         'Hleb\\Main\\Console\\ConsoleColorOutput' => __DIR__ . '/..' . '/phphleb/framework/Main/Console/ConsoleColorOutput.php',
         'Hleb\\Main\\Console\\MainConsole' => __DIR__ . '/..' . '/phphleb/framework/Main/Console/MainConsole.php',
+        'Hleb\\Main\\DB' => __DIR__ . '/..' . '/phphleb/framework/Main/DB.php',
         'Hleb\\Main\\DataDebug' => __DIR__ . '/..' . '/phphleb/framework/Main/DataDebug.php',
         'Hleb\\Main\\Errors\\ErrorOutput' => __DIR__ . '/..' . '/phphleb/framework/Main/Errors/ErrorOutput.php',
         'Hleb\\Main\\HomeConnector' => __DIR__ . '/..' . '/phphleb/framework/Main/HomeConnector.php',
@@ -298,6 +326,10 @@ class ComposerStaticInit9c6768b13bd23d0f573b3b7c8d26069a
         'Hleb\\Main\\ProjectLoader' => __DIR__ . '/..' . '/phphleb/framework/Main/ProjectLoader.php',
         'Hleb\\Main\\TryClass' => __DIR__ . '/..' . '/phphleb/framework/Main/TryClass.php',
         'Hleb\\Main\\WorkDebug' => __DIR__ . '/..' . '/phphleb/framework/Main/WorkDebug.php',
+        'Hleb\\Scheme\\App\\Commands\\MainTask' => __DIR__ . '/..' . '/phphleb/framework/Scheme/App/Commands/MainTask.php',
+        'Hleb\\Scheme\\App\\Controllers\\MainController' => __DIR__ . '/..' . '/phphleb/framework/Scheme/App/Controllers/MainController.php',
+        'Hleb\\Scheme\\App\\Middleware\\MainMiddleware' => __DIR__ . '/..' . '/phphleb/framework/Scheme/App/Middleware/MainMiddleware.php',
+        'Hleb\\Scheme\\App\\Models\\MainModel' => __DIR__ . '/..' . '/phphleb/framework/Scheme/App/Models/MainModel.php',
         'Hleb\\Scheme\\Home\\Constructor\\Handlers\\ResourceStandard' => __DIR__ . '/..' . '/phphleb/framework/Scheme/Home/Constructor/Handlers/ResourceStandard.php',
         'Hleb\\Scheme\\Home\\Constructor\\Routes\\DataRoute' => __DIR__ . '/..' . '/phphleb/framework/Scheme/Home/Constructor/Routes/DataRoute.php',
         'Hleb\\Scheme\\Home\\Constructor\\Routes\\RouteMethodStandard' => __DIR__ . '/..' . '/phphleb/framework/Scheme/Home/Constructor/Routes/RouteMethodStandard.php',
@@ -429,7 +461,6 @@ class ComposerStaticInit9c6768b13bd23d0f573b3b7c8d26069a
         'Intervention\\Image\\Point' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Point.php',
         'Intervention\\Image\\Response' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Response.php',
         'Intervention\\Image\\Size' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Size.php',
-        'Phphleb\\Debugpan\\DPanel' => __DIR__ . '/..' . '/phphleb/debugpan/DPanel.php',
         'Psr\\Http\\Message\\MessageInterface' => __DIR__ . '/..' . '/psr/http-message/src/MessageInterface.php',
         'Psr\\Http\\Message\\RequestInterface' => __DIR__ . '/..' . '/psr/http-message/src/RequestInterface.php',
         'Psr\\Http\\Message\\ResponseInterface' => __DIR__ . '/..' . '/psr/http-message/src/ResponseInterface.php',
@@ -454,6 +485,9 @@ class ComposerStaticInit9c6768b13bd23d0f573b3b7c8d26069a
         'Symfony\\Component\\Process\\Process' => __DIR__ . '/..' . '/symfony/process/Process.php',
         'Symfony\\Component\\Process\\ProcessBuilder' => __DIR__ . '/..' . '/symfony/process/ProcessBuilder.php',
         'Symfony\\Component\\Process\\ProcessUtils' => __DIR__ . '/..' . '/symfony/process/ProcessUtils.php',
+        'XdORM\\Shell\\XdDB' => __DIR__ . '/..' . '/phphleb/xdorm/Shell/XdDB.php',
+        'XdORM\\Shell\\XdHelper' => __DIR__ . '/..' . '/phphleb/xdorm/Shell/XdHelper.php',
+        'XdORM\\XD' => __DIR__ . '/..' . '/phphleb/xdorm/XD.php',
         'YoHang88\\LetterAvatar\\LetterAvatar' => __DIR__ . '/..' . '/yohang88/letter-avatar/src/LetterAvatar.php',
     );
 

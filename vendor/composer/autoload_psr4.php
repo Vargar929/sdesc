@@ -7,11 +7,13 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'YoHang88\\LetterAvatar\\' => array($vendorDir . '/yohang88/letter-avatar/src'),
+    'XdORM\\' => array($vendorDir . '/phphleb/xdorm'),
     'Symfony\\Component\\Process\\' => array($vendorDir . '/symfony/process'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Phphleb\\' => array($vendorDir . '/phphleb'),
     'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src/Intervention/Image'),
     'Hleb\\' => array($vendorDir . '/phphleb/framework'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
+    'Firebase\\JWT\\' => array($vendorDir . '/firebase/php-jwt/src'),
     'App\\' => array($baseDir . '/app'),
 );
