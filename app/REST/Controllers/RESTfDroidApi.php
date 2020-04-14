@@ -198,7 +198,7 @@ class RESTfDroidApi extends \MainController
             echo json_encode($json);
         }
     }
-
+//2
     function tickets_RESTodroid_API(){
         header("Access-Control-Allow-Origin: " . self::http_host_uri());
         header("Content-Type: application/json; charset=UTF-8");

@@ -155,6 +155,7 @@ WHERE
         pi.user_id = u.id and u.id = :uid";
         $arr = DB::run($sql,$data)->fetchAll(PDO::FETCH_ASSOC);
         foreach ($arr as $arr) {
+//            1/
             return $arr;
         }
     }
