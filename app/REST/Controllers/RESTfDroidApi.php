@@ -225,7 +225,7 @@ class RESTfDroidApi extends \MainController
                 $json['message'] = 'Tickets get successfull';
                 $json['tickets'] = $arr;
                 echo json_encode($json);
-            }elseif(!$_POST($_GET['status'])&&!empty($_POST['id'])&&!empty($_POST['role'])){
+            }elseif(!isset($_POST['status'])&&!empty($_POST['id'])&&!empty($_POST['role'])){
                 if ($_POST['role'] =="1"){
                     $params = [
                         "id"=>$_POST['id'],
