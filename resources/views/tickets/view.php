@@ -143,6 +143,7 @@
 			<div class="card-header row">
                 <div class="col-md-9">
 				<span class="badge badge-info"><i class="fa fa-bell fa-info"></i></span> Просмотр заявки <b>№<?php use YoHang88\LetterAvatar\LetterAvatar;
+
 						echo $vars['data']['ti_id'];?></b>
                 </div>
                 <?php if($vars['data']['owner_id']==$_SESSION['account']['id'] or $_SESSION['account']['role']=='5'){

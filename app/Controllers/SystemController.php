@@ -7,7 +7,6 @@
  */
 
 namespace App\Controllers;
-use App\Models\UserModel;
 
 class SystemController extends \MainController
 {

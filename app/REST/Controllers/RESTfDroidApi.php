@@ -9,9 +9,17 @@ use App\REST\Models\RESTModel;
 use Firebase\JWT\JWT;
 use Garik\HttpRequest;
 use Garik\HttpRequestException;
+use Kreait\Firebase\Exception\FirebaseException;
+use Kreait\Firebase\Exception\MessagingException;
+use Kreait\Firebase\Messaging;
+use Kreait\Firebase\Messaging\CloudMessage;
+use Kreait\Firebase\Messaging\Notification;
+use Kreait\Firebase\Factory;
+
 
 class RESTfDroidApi extends \MainController
 {
+
 
     public static function http_host_uri(){
         $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
@@ -206,30 +214,30 @@ class RESTfDroidApi extends \MainController
         header("Access-Control-Max-Age: 3600");
         header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-        if(isset($_GET)){
-            if (isset($_GET['status'])&&!empty($_GET['status'])&&!empty($_GET['id'])&&!empty($_GET['role'])){
+        if(isset($_POST)){
+            if (isset($_POST['status'])&&!empty($_POST['status'])&&!empty($_POST['id'])&&!empty($_POST['role'])){
                 $params = [
-                    "id"=>$_GET['id'],
-                    "status"=>$_GET['status'],
+                    "id"=>$_POST['id'],
+                    "status"=>$_POST['status'],
                 ];
                 $arr = TicketModel::getAllDataFrmTicketWhereByUserID($params);
                 $json['error'] = false;
                 $json['message'] = 'Tickets get successfull';
                 $json['tickets'] = $arr;
                 echo json_encode($json);
-            }elseif(!isset($_GET['status'])&&!empty($_GET['id'])&&!empty($_GET['role'])){
-                if ($_GET['role'] =="1"){
+            }elseif(!$_POST($_GET['status'])&&!empty($_POST['id'])&&!empty($_POST['role'])){
+                if ($_POST['role'] =="1"){
                     $params = [
-                        "id"=>$_GET['id'],
+                        "id"=>$_POST['id'],
                     ];
                     $arr = TicketModel::getAllDataFrmTicketWhereByUserID($params);
                     $json['error'] = false;
                     $json['message'] = 'Tickets get successfull';
                     $json['tickets'] = $arr;
                     echo json_encode($json);
-                }elseif($_GET['role']=="5"){
+                }elseif($_POST['role']=="5"){
                     $params = [
-                        "id"=>$_GET['id'],
+                        "id"=>$_POST['id'],
                     ];
                     $arr = TicketModel::getAllDataFrmTicketWhereByOwnerID($params);
                     $json['error'] = false;
@@ -238,16 +246,16 @@ class RESTfDroidApi extends \MainController
                     echo json_encode($json);
                 }
 
-            }elseif (isset($_GET['status'])&&!isset($_GET['id'])){
+            }elseif (isset($_POST['status'])&&!isset($_POST['id'])){
                 $params = [
-                    "status"=>$_GET['status'],
+                    "status"=>$_POST['status'],
                 ];
                 $arr = TicketModel::getAllDataFrmTicketWhereByUserID($params);
                 $json['error'] = false;
                 $json['message'] = 'Tickets get successfull';
                 $json['tickets'] = $arr;
                 echo json_encode($json);
-            }elseif (!isset($_GET['status'])&&!isset($_GET['id'])){
+            }elseif (!isset($_POST['status'])&&!isset($_POST['id'])){
                 $params = [
                 ];
                 $arr = TicketModel::getAllDataFrmTicketWhereByUserID($params);
@@ -275,6 +283,7 @@ class RESTfDroidApi extends \MainController
         $json['error'] = false;
         $json['message'] = 'Success created new ticket.';
         $json['result'] = TicketModel::WriteNewTickets($_POST);
+//        self::notyfyNewTicket($_POST);
         echo json_encode($json);
         }elseif(isset($_GET)){
             $json['error'] = false;
@@ -287,6 +296,31 @@ class RESTfDroidApi extends \MainController
             echo json_encode($json);
         }
     }
+
+    function notyfyNewTicket($post){
+    $deviceToken = TicketModel::getDeviceTokenFromUser($post);
+    $title = 'Заявка №123456789';
+    $body = 'Проверка';
+
+    $notification = Notification::fromArray([
+        'title' => $title,
+        'body' => $body,
+    ]);
+
+
+    $message = CloudMessage::fromArray([
+        'token' => $deviceToken,
+        'notification' => $notification, // optional
+    ]);
+
+    try {
+        $this->messaging->send($message);
+    } catch (MessagingException $e) {
+    } catch (FirebaseException $e) {
+    }
+
+
+}
 
     function confirm_new_user_RESTodroid_API(){
         header("Access-Control-Allow-Origin: " . self::http_host_uri());

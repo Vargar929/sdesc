@@ -7,9 +7,7 @@
  */
 
 namespace App\Models;
-use DB;
 use MainModel;
-use PDO;
 
 class TestModel extends MainModel
 {

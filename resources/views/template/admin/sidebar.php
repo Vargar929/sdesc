@@ -1,6 +1,8 @@
 <body id="page-top">
 <?php
+
 use App\Models\AdminModel;
+
 $set_arr = AdminModel::getSysSet();
 foreach ($set_arr as $row){
     $system_name = $row['system_name'];

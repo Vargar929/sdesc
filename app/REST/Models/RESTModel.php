@@ -8,10 +8,7 @@
 
 namespace App\REST\Models;
 
-use App\Models\UserModel;
-use App\REST\Controllers\RESTController;
 use DB;
-use Firebase\JWT\JWT;
 use PDO;
 
 class RESTModel extends \MainModel
@@ -59,7 +56,6 @@ class RESTModel extends \MainModel
         $sql = "INSERT INTO checked_sms(email,uphone, sms_key, key_time, user_ip) VALUES(:email,:uphone, :sms_key, :key_time, :ip)";
         DB::run($sql,$params);
     }
-
     public static function checkVerCode($data)
     {
         $sql = "SELECT sms_key FROM checked_sms where email = '".$data['email']."'and sms_key ='".$data['sms_key']."';";
@@ -69,6 +65,59 @@ class RESTModel extends \MainModel
         }else{
             return false;
         }
+    }
+
+
+
+    //storing token in database
+     static function registerDevice($data){
+        $params=[
+            'uid'=>$data['uid'],
+            'email'=>$data['email'],
+            'token'=>$data['token'],
+        ];
+        if(!self::isEmailExist($data['email'])){
+            $sql = "INSERT INTO devices (uid, email, token) VALUES (:uid,:email,:token) ";
+            if(DB::run($sql,$params))
+                return 0; //return 0 means success
+            return 1; //return 1 means failure
+        }else{
+            return 2; //returning 2 means email already exist
+        }
+    }
+
+    //the method will check if email already exist
+    private static function isEmailexist($email){
+        $sql = "SELECT id FROM devices WHERE email = ?";
+        $stmt = DB::run($sql,[$email]);
+        $num_rows = $stmt->rowCount();
+        return $num_rows > 0;
+    }
+
+    //getting all tokens to send push to all devices
+    static function getAllTokens(){
+        $sql ="SELECT token FROM devices";
+        $result = DB::run($sql);
+        $tokens = array();
+        while($token = $result->fetch(PDO::FETCH_ASSOC)){
+            array_push($tokens, $token['token']);
+        }
+        return $tokens;
+    }
+
+    //getting a specified token to send push to selected device
+    static function getTokenByEmail($email){
+        $sql = "SELECT token FROM devices WHERE email = :email";
+        $P_result = DB::run($sql,['email'=>$email]);
+        $result = $P_result->fetch(PDO::FETCH_ASSOC);
+        return array($result['token']);
+    }
+
+    //getting all the registered devices from database
+    static function getAllDevices(){
+        $sql = "SELECT * FROM devices";
+        $result = DB::run($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
 
 }

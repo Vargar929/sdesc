@@ -19,7 +19,6 @@ class TicketModel extends MainModel
      */
     static  function WriteNewTickets($data){
         if (!empty($data)){
-//            'user_id'=>$_SESSION['account']['id'],
             $params = [
                 'email'=>$data['email'],
                 'phone'=>$data['UserPhone'],
@@ -99,5 +98,6 @@ class TicketModel extends MainModel
             return $rez;
         }
     }
+
 
 }

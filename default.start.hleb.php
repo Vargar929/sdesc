@@ -184,3 +184,19 @@ define( 'HLEB_PROJECT_VALIDITY_URL', "/^[a-z0-9а-яё\_\-\/\.]+$/u" );
  |
  */
 define( 'HLEB_GLOBAL_DIRECTORY', __DIR__ );
+/*
+ |-----------------------------------------------------------------------------
+ | Project Firebase API_KEY
+ |-----------------------------------------------------------------------------
+ |
+ | Changing value, serves to set the FIREBASE api key.
+ |
+ |
+ |-----------------------------------------------------------------------------
+ | Firebase API_KEY проекта
+ |-----------------------------------------------------------------------------
+ |
+ | Изменяемое значение, служит для установки ключа api FIREBASE.
+ |
+ */
+define('FIREBASE_API_KEY', 'AAAAqvENC3M:APA91bHhBEQBRtxJgqQXdvFaxfB_LjHOSQiUkQI9HnHFF2f463qKf_mlZ_Ec88Z5RWEUJ0Joy3SKxxvxkO5f9R33vs_DTzSmLm9PzerDTB1u4D31cim_8to_FaYltZHuZke2nqoVeW6C');

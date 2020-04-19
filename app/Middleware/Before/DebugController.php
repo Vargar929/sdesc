@@ -7,6 +7,7 @@
  */
 namespace App\Middleware\Before;
 use Hleb\Main\MyDebug;
+
 class DebugController extends \MainMiddleware
 {
     function index()

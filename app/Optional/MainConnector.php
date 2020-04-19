@@ -18,6 +18,7 @@ class MainConnector implements Connector
             "App\Controllers\*" => "app/Controllers/",
             "App\REST\Controllers\*" => "app/REST/Controllers/",
             "App\REST\Models\*" => "app/REST/Models/",
+            "App\REST\Helpers\*" => "app/REST/Helpers/",
             "Models\*" => "app/Models/",
             "App\Middleware\Before\*" => "app/Middleware/Before/",
             "App\Middleware\After\*" => "app/Middleware/After/",
@@ -32,7 +33,7 @@ class MainConnector implements Connector
             'Firebase\JWT\JWT'=>'vendor/firebase/php-jwt/src/JWT.php', //JSON Web Token — это открытый стандарт для создания токенов доступа,
             'id009\QRGenerator'=>'vendor/phpqrcode/Generator.php', //PHP QR Code   library for generating QR Code
             'Garik\HttpRequest'=>'vendor/httprequest/HttpRequest.php',
-            'GuzzleHttp\ClientInterface'=>''
+            'Kreait\Firebase\*'=>'vendor/kreait/firebase-php/src/Firebase'
             //"XdORM\XD" => "vendor/phphleb/xdorm/XD.php",
             //'Phphleb\Adminpan\MainAdminPanel'=>'vendor/phphleb/adminpan/MainAdminPanel.php',
             // ... //

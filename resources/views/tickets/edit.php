@@ -81,7 +81,7 @@
     <div class="col-md-7 col-lg-7">
         <div class="card">
             <div class="card-header">
-                <span class="badge badge-info"><i class="fa fa-bell fa-info"></i></span> <?php echo $title.': ';?><b>№<?php use YoHang88\LetterAvatar\LetterAvatar;
+                <span class="badge badge-info"><i class="fa fa-bell fa-info"></i></span> <?php echo $title.': ';?><b>№<?php
                     echo $vars['data']['ti_id'];?></b>
             </div>
             <div class="card-body">
