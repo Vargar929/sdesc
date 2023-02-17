@@ -35,7 +35,7 @@
     "eternicode/bootstrap-datepicker": "1.9.*",
     "ext-pdo": "*",
     "nnnick/chartjs":"v3.0.0-alpha",
-    "firebase/php-jwt": "^5.2.0",
+    "firebase/php-jwt": "^6.0.0",
     "ext-mysqli": "*",
     "ext-curl": "*"
   },
